@@ -10,7 +10,9 @@ function depositar(saldo, depositoFeito) {
   return saldo + depositoFeito;
 }
 
-function sacar() {}
+function sacar(saldo, saqueFeito) {
+  return saldo - saqueFeito;
+}
 
 while (opcao !== 4) {
   opcao = Number(
@@ -29,6 +31,17 @@ Escolha uma opção:
     let depositoFeito = Number(prompt("Qual o valor deseja depositar?"));
     saldo = depositar(saldo, depositoFeito);
     alert(`Depósito realizado!
-      Novo saldo: R$ ${saldo} `);
+Novo saldo: R$ ${saldo} `);
+  } else if (opcao == 3) {
+    let saqueFeito = Number(prompt("Quanto você deseja sacar?"));
+
+    if (saqueFeito <= saldo) {
+      saldo = sacar(saldo, saqueFeito);
+
+      alert(`Saque realizado!
+Novo saldo disponível: R$ ${saldo}`);
+    } else {
+      alert("Saldo insuficiente para realizar o saque.");
+    }
   }
 }
