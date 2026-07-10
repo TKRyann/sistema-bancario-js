@@ -1,19 +1,22 @@
 let saldo = 10000;
-
 let opcao = 0;
 
+// Exibe o saldo atual da conta
 function consultarSaldo() {
   return saldo;
 }
 
+// Soma o valor do depósito ao saldo atual
 function depositar(saldo, depositoFeito) {
   return saldo + depositoFeito;
 }
 
+// Subtrai o valor do saque do saldo
 function sacar(saldo, saqueFeito) {
   return saldo - saqueFeito;
 }
 
+// Mantém o sistema em execução até o usuário escolher a opção "Sair"
 while (opcao !== 4) {
   opcao = Number(
     prompt(`
