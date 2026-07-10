@@ -51,5 +51,9 @@ Novo saldo disponível: R$ ${saldo}`);
     }
   } else if (opcao == 4) {
     alert("Obrigado por utilizar nosso banco!");
+  } else {
+    alert(`❌ Opção inválida!
+
+Escolha uma opção entre 1 e 4.`);
   }
 }
