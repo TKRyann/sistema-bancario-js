@@ -26,7 +26,8 @@ Escolha uma opção:
   );
 
   if (opcao == 1) {
-    alert(`Seu saldo disponivel é de R$${consultarSaldo().toFixed(2)}`);
+    alert(`Seu saldo disponível é:
+R$ ${consultarSaldo().toFixed(2)}`);
   } else if (opcao == 2) {
     let depositoFeito = Number(prompt("Qual o valor deseja depositar?"));
 
