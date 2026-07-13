@@ -18,7 +18,7 @@ function sacar(saldo, saqueFeito) {
 }
 
 // Mantém o sistema em execução até o usuário escolher a opção "Sair"
-while (opcao !== 4) {
+while (opcao !== 5) {
   opcao = Number(
     prompt(`
 Escolha uma opção:
@@ -26,12 +26,15 @@ Escolha uma opção:
 1 - Consultar saldo
 2 - Depositar
 3 - Sacar
-4 - Sair`),
+4 - Ver extrato
+5 - Sair
+`),
   );
-
+  // Ver saldo disponivel
   if (opcao == 1) {
     alert(`Seu saldo disponível é:
 R$ ${consultarSaldo().toFixed(2)}`);
+    // Depositar
   } else if (opcao == 2) {
     let depositoFeito = Number(prompt("Qual o valor deseja depositar?"));
 
@@ -43,6 +46,7 @@ Novo saldo: R$ ${saldo.toFixed(2)} `);
     } else {
       alert("Depósito inválido! Digite um valor maior que R$ 0,00.");
     }
+    // Sacar
   } else if (opcao == 3) {
     let saqueFeito = Number(prompt("Quanto você deseja sacar?"));
 
@@ -56,11 +60,18 @@ Novo saldo disponível: R$ ${saldo.toFixed(2)}`);
     } else {
       alert("Saldo insuficiente");
     }
+    // Ver extrato
   } else if (opcao == 4) {
+    for (let i = 0; i < historico.length; i++) {
+      alert(`========== EXTRATO ========== 
+        ${historico[i]}
+        `);
+    }
+  } else if (opcao == 5) {
     alert("Obrigado por utilizar nosso banco!");
   } else {
     alert(`❌ Opção inválida!
 
-Escolha uma opção entre 1 e 4.`);
+Escolha uma opção entre 1 e 5.`);
   }
 }
