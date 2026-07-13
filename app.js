@@ -50,6 +50,7 @@ Novo saldo: R$ ${saldo.toFixed(2)} `);
       saldo = sacar(saldo, saqueFeito);
       alert(`Saque realizado!
 Novo saldo disponível: R$ ${saldo.toFixed(2)}`);
+      historico.push(`Saque: R$ ${saqueFeito.toFixed(2)}`);
     } else if (saqueFeito <= 0) {
       alert("Valor de saque inválido.");
     } else {
