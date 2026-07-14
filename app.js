@@ -39,7 +39,7 @@ R$ ${consultarSaldo().toFixed(2)}`);
   else if (opcao === 2) {
     let entrada = prompt("Qual o valor deseja depositar?");
     if (entrada === null) {
-      alert("Operação de saque cancelada!");
+      alert("Operação de depósito cancelada!");
     } else if (entrada === "") {
       alert("Campo vazio!");
     } else {
