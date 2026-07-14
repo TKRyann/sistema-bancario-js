@@ -78,11 +78,14 @@
 
 
 .hero {
-    min-height: 100vh;
+    min-height: calc(100vh - 120px);
+    display: flex;
+    align-items: center;
 }
 
 .hero-content {
     display: flex;
+    flex: 1.2;
     justify-content: space-between;
     align-items: center;
     gap: 30px;
@@ -90,6 +93,9 @@
 
 .hero-left {
     outline: 2px solid white;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
 }
 .hero-left-texto {
     color: white;
@@ -147,5 +153,13 @@
 }
 
 .hero-right {
-    outline: 2px solid white;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-right img {
+    width: 100%;
+    max-width: 51.25rem;
 }
