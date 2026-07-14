@@ -30,12 +30,12 @@ Escolha uma opção:
 5 - Sair
 `),
   );
-  // Ver saldo disponivel
+  // Consultar saldo disponível
   if (opcao === 1) {
     alert(`Seu saldo disponível é:
 R$ ${consultarSaldo().toFixed(2)}`);
   }
-  // Depositar
+  // Realiza um depósitor
   else if (opcao === 2) {
     let depositoFeito = Number(prompt("Qual o valor deseja depositar?"));
     if (Number.isNaN(depositoFeito)) {
@@ -49,7 +49,7 @@ Novo saldo: R$ ${saldo.toFixed(2)}`);
       alert("Depósito inválido! Digite um valor maior que R$ 0,00.");
     }
   }
-  // Sacar
+  // Realiza um saque
   else if (opcao === 3) {
     let saqueFeito = Number(prompt("Quanto você deseja sacar?"));
     if (Number.isNaN(saqueFeito)) {
