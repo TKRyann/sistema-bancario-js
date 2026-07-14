@@ -41,7 +41,7 @@ R$ ${consultarSaldo().toFixed(2)}`);
     if (entrada === null) {
       alert("Operação de depósito cancelada!");
     } else if (entrada === "") {
-      alert("Campo vazio!");
+      alert("Nenhum valor foi informado.");
     } else {
       let depositoFeito = Number(entrada);
       if (Number.isNaN(depositoFeito)) {
@@ -62,7 +62,7 @@ Novo saldo: R$ ${saldo.toFixed(2)}`);
     if (saida === null) {
       alert("Operação de saque cancelada!");
     } else if (saida === "") {
-      alert("Campo vazio!");
+      alert("Nenhum valor foi informado.");
     } else {
       let saqueFeito = Number(saida);
       if (Number.isNaN(saqueFeito)) {
