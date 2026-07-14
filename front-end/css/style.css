@@ -78,13 +78,14 @@
 
 
 .hero {
-
+    min-height: 100vh;
 }
 
 .hero-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 30px;
 }
 
 .hero-left {
@@ -95,9 +96,29 @@
     font-size: 3.875rem;
 }
 
-.hero-left-texto span {
+.hero-left-texto-destaque {
     color: var(--primary-color);
     font-size: 3.813rem;
+}
+
+.hero-left-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.hero-left-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.hero-left-card-icon-text h2 {
+    color: #979A9D;
+}
+
+.hero-left-card-icon-text p {
+    color: #FFFFFF;
 }
 
 .hero-right {
