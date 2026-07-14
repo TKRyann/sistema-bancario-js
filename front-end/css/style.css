@@ -140,6 +140,15 @@
     align-items: center;
     background-color: var(--primary-color);
     gap: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.hero-buttons-bnt1 a {
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 .hero-buttons-bnt2 {
@@ -149,7 +158,15 @@
     align-items: center;
     justify-content: center;
     gap: 13px;
-    color:#8C9093;
+    border-radius: 0.563rem;
+    cursor: pointer;
+}
+
+.hero-buttons-bnt2 a {
+    text-decoration: none;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 600;
 }
 
 .hero-right {
