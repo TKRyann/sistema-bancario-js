@@ -31,11 +31,11 @@ Escolha uma opção:
 `),
   );
   // Ver saldo disponivel
-  if (opcao == 1) {
+  if (opcao === 1) {
     alert(`Seu saldo disponível é:
 R$ ${consultarSaldo().toFixed(2)}`);
     // Depositar
-  } else if (opcao == 2) {
+  } else if (opcao === 2) {
     let depositoFeito = Number(prompt("Qual o valor deseja depositar?"));
 
     if (depositoFeito > 0) {
@@ -47,7 +47,7 @@ Novo saldo: R$ ${saldo.toFixed(2)} `);
       alert("Depósito inválido! Digite um valor maior que R$ 0,00.");
     }
     // Sacar
-  } else if (opcao == 3) {
+  } else if (opcao === 3) {
     let saqueFeito = Number(prompt("Quanto você deseja sacar?"));
 
     if (saqueFeito <= saldo && saqueFeito > 0) {
@@ -61,7 +61,7 @@ Novo saldo disponível: R$ ${saldo.toFixed(2)}`);
       alert("Saldo insuficiente");
     }
     // Ver extrato
-  } else if (opcao == 4) {
+  } else if (opcao === 4) {
     if (historico.length > 0) {
       let extrato = "";
       for (let i = 0; i < historico.length; i++) {
@@ -75,7 +75,7 @@ Novo saldo disponível: R$ ${saldo.toFixed(2)}`);
     } else {
       alert("Nenhuma operação foi realizada.");
     }
-  } else if (opcao == 5) {
+  } else if (opcao === 5) {
     alert("Obrigado por utilizar nosso banco!");
   } else {
     alert(`❌ Opção inválida!
