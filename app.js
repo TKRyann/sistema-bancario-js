@@ -1,4 +1,4 @@
-let saldo = 1000;
+let saldo = 100;
 let opcao = 0;
 let historico = [];
 
