@@ -1,4 +1,16 @@
 let saldo = 100;
+
+let cliente = {
+  nome: "Ryann",
+  idade: 23,
+  conta: {
+    agencia: "0001",
+    numero: "12345-6",
+    tipo: "Conta corrente",
+    saldo: 100,
+  },
+};
+
 let opcao = 0;
 let historico = [];
 let historicoDepositos = [];
