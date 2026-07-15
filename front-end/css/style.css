@@ -5,7 +5,7 @@
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-radius: 10px;
+    border-radius: 0.625rem;
     margin: 0.75rem 0.625rem;
     display: flex;
     justify-content: space-between;
@@ -77,8 +77,6 @@
 
 .container {
     width: 100%;
-    /* max-width: 1200px; */
-    /* margin: 0 auto; */
     padding: 0 2rem;
 }
 
@@ -110,7 +108,7 @@
     align-items: center;
     gap: .6rem;
     padding: .6rem 1rem;
-    border-radius: 999px;
+    border-radius: 62.438rem;
     border: 1px solid rgba(255, 193, 7, 0.35);
     background: rgba(255, 193, 7, 0.08);
 
@@ -123,8 +121,8 @@
 }
 
 .hero-badge-dot {
-    width: 8px;
-    height: 8px;
+    width: 0.5rem;
+    height: 0.5rem;
     border-radius: 50%;
     background: #FACC15;
 }
@@ -152,7 +150,7 @@
     font-size: 1.125rem;
     color: #9CA3AF;
     line-height: 1.7;
-    max-width: 580px;
+    max-width: 36.25rem;
 }
 
 .hero-left-cards-grid {
@@ -168,12 +166,12 @@
 }
 
 .hero-left-card-icon {
-    width: 60px;
-    height: 60px;
+    width: 3.75rem;
+    height: 3.75rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 14px;
+    border-radius: 0.875rem;
     background-color:#121826;
     border:1px solid rgba(255,255,255,.08);
 }
@@ -196,11 +194,11 @@
 }
 
 .hero-buttons-bnt1 {
-    padding: 15px 22px 16px 22px;
+    padding: 0.938rem 1.375rem 1rem 1.375rem;
     display: flex;
     align-items: center;
     background-color: var(--primary-color);
-    gap: 13px;
+    gap: 0.813rem;
     border-radius: 0.563rem;
     cursor: pointer;
 }
@@ -214,11 +212,11 @@
 
 .hero-buttons-bnt2 {
     border: 1px solid var(--primary-color);
-    padding: 15px 22px 16px 22px;
+    padding: 0.938rem 1.375rem 1rem 1.375rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 13px;
+    gap: 0.813rem;
     border-radius: 0.563rem;
     cursor: pointer;
 }
@@ -248,7 +246,7 @@
     align-items: center;
     background: rgba(255,255,255,.03);
     border: 1px solid rgba(255,255,255,.08);
-    border-radius: 14px;
+    border-radius: 0.875rem;
 }
 
 .features-card {
@@ -256,7 +254,7 @@
     display: flex;
     align-items: flex-start;
     gap: 1rem;
-    padding: 23px;
+    padding: 1.438rem;
     flex: 1;
 }
 
@@ -274,12 +272,12 @@
 }
 
 .features-icon {
-    width: 48px;
-    height: 48px;
+    width: 3rem;
+    height: 3rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius:12px;
+    border-radius: 0.75rem;
     background:rgba(0,255,100,.08);
 
 }
@@ -303,7 +301,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 28px;
+    margin: 1.75rem;
 }
 
 .footer-logo {
