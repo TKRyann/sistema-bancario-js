@@ -99,7 +99,6 @@
 }
 
 .hero-left {
-    outline: 2px solid white;
     display: flex;
     flex: 1.1;
     flex-direction: column;
@@ -108,7 +107,6 @@
 
 .hero-badge {
     width: fit-content;
-    color: white;
     display: flex;
     align-items: center;
     gap: .6rem;
@@ -125,16 +123,25 @@
     font-weight: 600;
 }
 
-.hot-badge-dot {
+.hero-badge-dot {
     width: 8px;
     height: 8px;
     border-radius: 50%;
     background-color: var(--primary-color);
 }
 
+.hero-left-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
 .hero-left-texto {
     color: white;
-    font-size: 3.875rem;
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.05;
+    color: #FFFFFF;
 }
 
 .hero-left-texto-destaque {
@@ -143,13 +150,16 @@
 }
 
 .hero-left-paragrafo {
-    color: #858992;
+    font-size: 1.125rem;
+    color: #9CA3AF;
+    line-height: 1.7;
+    max-width: 580px;
 }
 
 .hero-left-cards-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    gap: 2rem 2.5rem;
 }
 
 .hero-left-card {
@@ -159,24 +169,30 @@
 }
 
 .hero-left-card-icon {
-    border: 2px solid white;
-    padding: 0.938rem;
-    border-radius: 12px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 14px;
+    background-color:#121826;
+    border:1px solid rgba(255,255,255,.08);
 }
 
 .hero-left-card-icon-text h2 {
-    color: #979A9D;
+    color: #FFFFFF;
+    font-size: 1.2rem;
 }
 
 .hero-left-card-icon-text p {
-    color: #FFFFFF;
+    color: #9CA3AF;
+    line-height: 1.6;
 }
 
 .hero-buttons {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 16px;
+    justify-content: space-between;
 }
 
 .hero-buttons-bnt1 {
