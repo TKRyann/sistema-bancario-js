@@ -12,6 +12,7 @@ let cliente = {
 };
 
 let opcao = 0;
+let transacoes = [];
 let historico = [];
 let historicoDepositos = [];
 let historicoSaques = [];
@@ -63,6 +64,10 @@ R$ ${consultarSaldo().toFixed(2)}`);
       } else if (depositoFeito > 0) {
         cliente.conta.saldo = depositar(cliente.conta.saldo, depositoFeito);
         historicoDepositos.push(depositoFeito);
+        transacoes.push({
+          tipo: "deposito",
+          valor: depositoFeito,
+        });
         alert(`Depósito realizado!
 Novo saldo: R$ ${cliente.conta.saldo.toFixed(2)}`);
         historico.push(`Depósito: R$ ${depositoFeito.toFixed(2)}`);
@@ -85,6 +90,10 @@ Novo saldo: R$ ${cliente.conta.saldo.toFixed(2)}`);
       } else if (saqueFeito > 0 && saqueFeito <= cliente.conta.saldo) {
         cliente.conta.saldo = sacar(cliente.conta.saldo, saqueFeito);
         historicoSaques.push(saqueFeito);
+        transacoes.push({
+          tipo: "saque",
+          valor: saqueFeito,
+        });
         alert(`Saque realizado!
 Novo saldo disponível: R$ ${cliente.conta.saldo.toFixed(2)}`);
         historico.push(`Saque: R$ ${saqueFeito.toFixed(2)}`);
@@ -124,7 +133,7 @@ ${extrato}
 Total depositado: R$ ${totalDepositado.toFixed(2)}
 Total sacado: R$ ${totalSacado.toFixed(2)}
 Quantidade de operações: ${historico.length}
-Saldo atual: R$ ${saldo.toFixed(2)}
+Saldo atual: R$ ${cliente.conta.saldo.toFixed(2)}
 
 =============================`);
     } else {
