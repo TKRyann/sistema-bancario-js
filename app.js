@@ -8,10 +8,9 @@ let cliente = {
     saldo: 100,
   },
 };
-
-let opcao = 0;
 let transacoes = [];
-
+let proximoId = 1;
+let opcao = 0;
 // Exibe o saldo atual da conta
 function consultarSaldo() {
   return cliente.conta.saldo;
@@ -59,9 +58,12 @@ R$ ${consultarSaldo().toFixed(2)}`);
       } else if (depositoFeito > 0) {
         cliente.conta.saldo = depositar(cliente.conta.saldo, depositoFeito);
         transacoes.push({
+          id: proximoId,
           tipo: "deposito",
           valor: depositoFeito,
         });
+        proximoId++;
+        console.log(transacoes);
         alert(`Depósito realizado!
 Novo saldo: R$ ${cliente.conta.saldo.toFixed(2)}`);
       } else {
@@ -82,11 +84,12 @@ Novo saldo: R$ ${cliente.conta.saldo.toFixed(2)}`);
         alert("Valor inválido. Digite apenas números.");
       } else if (saqueFeito > 0 && saqueFeito <= cliente.conta.saldo) {
         cliente.conta.saldo = sacar(cliente.conta.saldo, saqueFeito);
-        historicoSaques.push(saqueFeito);
         transacoes.push({
+          id: proximoId,
           tipo: "saque",
           valor: saqueFeito,
         });
+        proximoId++;
         alert(`Saque realizado!
 Novo saldo disponível: R$ ${cliente.conta.saldo.toFixed(2)}`);
       } else if (saqueFeito <= 0) {
