@@ -1,0 +1,40 @@
+.rec-left {
+    display: flex;
+    flex: 1.1;
+    flex-direction: column;
+    gap: 2.5rem;
+    padding-top: 5rem;
+}
+
+.rec-left h2 {
+    color: #FFFFFF;
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.05;
+}
+
+.rec-left-text-destaque {
+    color: var(--primary-color);
+    font-size: 3.813rem;
+}
+
+.rec-left p {
+    font-size: 1.125rem;
+    color: #9CA3AF;
+    line-height: 1.7;
+    max-width: 36.25rem;
+    padding-top: 1rem;
+}
+
+.rec-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem 2.5rem;
+    padding-top: 5rem;
+}
+
+.rec-card {
+    border: 2px solid var(--primary-color);
+    color: white;
+    text-align: center;
+}
