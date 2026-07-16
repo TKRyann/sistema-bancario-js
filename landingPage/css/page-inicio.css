@@ -1,4 +1,8 @@
 @import url(global.css);
+@import url(page-recursos.css);
+@import url(page-seguranca.css);
+@import url(page-sobre.css);
+
 
 .header {
     background-color: var(--secondary-color);
