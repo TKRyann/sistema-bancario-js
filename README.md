@@ -1,10 +1,8 @@
 # 🏦 Sistema Bancário em JavaScript
 
-Sistema bancário desenvolvido para praticar lógica de programação e fundamentos de JavaScript.
+Projeto educacional desenvolvido para praticar lógica de programação e os fundamentos de JavaScript por meio da evolução contínua de um sistema bancário.
 
-O projeto começou com operações bancárias simples e vem sendo atualizado conforme avanço nos estudos. Atualmente, o sistema permite consultar o saldo, realizar depósitos e saques, visualizar o histórico das transações e acompanhar um resumo completo da conta.
-
-As operações são realizadas pelo navegador utilizando `prompt` e `alert`.
+O sistema funciona no navegador utilizando `prompt()` e `alert()`. Atualmente, permite cadastrar um cliente, consultar o saldo, realizar depósitos e saques, visualizar o extrato e consultar os dados da conta.
 
 ---
 
@@ -12,121 +10,148 @@ As operações são realizadas pelo navegador utilizando `prompt` e `alert`.
 
 🚧 Projeto em desenvolvimento
 
-**Versão atual: `v2.1.0`**
+**Versão atual: `v3.0.0`**
 
-O projeto continuará recebendo novas funcionalidades conforme novos conteúdos de JavaScript forem estudados.
+O projeto recebe novas funcionalidades conforme novos conteúdos de JavaScript são estudados.
 
 ---
 
-## 🎯 Objetivo do projeto
+## 🎯 Objetivo
 
-O principal objetivo deste projeto é aplicar os conteúdos estudados em JavaScript dentro de uma aplicação que possa evoluir ao longo do tempo.
+O objetivo deste projeto é aplicar os conteúdos estudados em uma aplicação que evolui por versões.
 
-Durante o desenvolvimento, também são praticados:
+Além de JavaScript, o projeto também é utilizado para praticar:
 
-- Organização de código;
-- Validação de dados;
 - Git e GitHub;
-- Criação de branches;
-- Commits organizados;
+- criação e exclusão de branches;
+- commits organizados;
 - Pull Requests;
-- Tags;
-- Releases;
-- Versionamento semântico.
+- tags e releases;
+- versionamento semântico.
 
 ---
 
 ## ✨ Funcionalidades
 
+### Cadastro e dados da conta
+
+- Cadastro básico do nome do cliente;
+- Cadastro da idade;
+- Escolha do tipo da conta;
+- Exibição dos dados do cliente;
+- Exibição da agência, número e tipo da conta;
+- Dados do cliente e da conta organizados em objetos.
+
 ### Operações bancárias
 
-- Consultar o saldo disponível;
-- Realizar depósitos;
-- Realizar saques;
-- Verificar se existe saldo suficiente;
-- Encerrar o sistema pelo menu.
-
-### Validações
-
-- Impedir depósitos menores ou iguais a zero;
-- Impedir saques menores ou iguais a zero;
-- Impedir saques maiores que o saldo;
-- Impedir o uso de letras no lugar de valores;
-- Identificar campos vazios;
-- Identificar quando uma operação é cancelada;
-- Tratar opções inválidas no menu;
-- Impedir que operações inválidas sejam registradas no histórico.
+- Consulta de saldo;
+- Realização de depósitos;
+- Realização de saques;
+- Verificação de saldo insuficiente;
+- Bloqueio de depósitos e saques menores ou iguais a zero;
+- Tratamento de campos vazios;
+- Tratamento de operações canceladas;
+- Validação de valores não numéricos;
+- Encerramento do sistema pelo menu.
 
 ### Histórico e extrato
 
-- Registrar depósitos realizados;
-- Registrar saques realizados;
-- Exibir todas as transações;
-- Numerar as operações;
-- Informar quando o histórico estiver vazio;
-- Exibir a quantidade total de operações;
-- Calcular o total depositado;
-- Calcular o total sacado;
-- Exibir o saldo atual;
-- Mostrar um resumo completo da conta.
+- Registro de depósitos e saques;
+- Transações armazenadas como objetos;
+- Identificador único para cada transação;
+- Registro de data e horário;
+- Numeração das operações;
+- Total depositado;
+- Total sacado;
+- Quantidade de operações;
+- Saldo atual no resumo da conta;
+- Mensagem para extrato sem movimentações.
 
 ---
 
-## 🆕 Novidades da v2.1.0
+## 🆕 Novidades da v3.0.0
 
-A versão `v2.1.0` trouxe melhorias para o extrato bancário e adicionou um resumo da conta.
+A versão `v3.0.0` reorganiza os dados do sistema utilizando Objetos e Arrays de Objetos.
 
-### Funcionalidades adicionadas
+### Principais mudanças
 
-- Numeração das transações;
-- Exibição do saldo atual no extrato;
-- Contagem da quantidade de operações;
-- Cálculo do total depositado;
-- Cálculo do total sacado;
-- Criação da seção “Resumo da conta”;
-- Melhorias na apresentação do extrato.
+- Criação do objeto `cliente`;
+- Criação do objeto `conta` dentro do cliente;
+- Saldo movido para `cliente.conta.saldo`;
+- Transações movidas para `cliente.conta.transacoes`;
+- Substituição dos Arrays antigos por um único Array de transações;
+- Depósitos e saques registrados como objetos;
+- Identificador único para cada operação;
+- Registro de data e horário;
+- Cadastro básico do cliente;
+- Nova opção para visualizar os dados da conta;
+- Extrato adaptado para trabalhar com objetos.
 
 ## 🧠 Conceitos praticados
 
-Durante o desenvolvimento do projeto, foram utilizados os seguintes conceitos:
-
-- Declaração de variáveis com `let`;
+- Variáveis com `let`;
 - Tipos de dados;
-- Conversão de valores com `Number()`;
+- Conversão com `Number()`;
 - Validação com `Number.isNaN()`;
 - Condicionais com `if`, `else if` e `else`;
-- Operadores de comparação;
-- Operadores lógicos;
-- Laço de repetição `while`;
-- Laço de repetição `for`;
+- Operadores de comparação e operadores lógicos;
+- Laços `while` e `for`;
 - Funções;
-- Parâmetros;
-- Retorno com `return`;
+- Parâmetros e retorno;
 - Escopo de variáveis;
 - Arrays;
+- Objetos;
+- Objetos dentro de objetos;
+- Arrays de objetos;
+- Propriedades e valores;
+- Acesso e alteração de propriedades;
 - Método `push()`;
 - Propriedade `length`;
-- Acesso a elementos pelo índice;
+- Índices de Arrays;
 - Variáveis acumuladoras;
 - Template strings;
-- Formatação numérica com `toFixed()`;
-- Manipulação de strings;
-- Quebra de linha com `\n`.
+- Formatação com `toFixed()`;
+- Objeto `Date`;
+- `toLocaleDateString()`;
+- `toLocaleTimeString()`.
 
 ---
 
-## ▶️ Como executar o projeto
+## ⚙️ Como o sistema funciona
+
+Ao iniciar o projeto, o sistema solicita:
+
+1. Nome do cliente;
+2. Idade;
+3. Tipo da conta.
+
+Em seguida, o menu principal é exibido:
+
+```text
+1 - Consultar saldo
+2 - Depositar
+3 - Sacar
+4 - Ver extrato
+5 - Ver dados da conta
+6 - Sair
+```
+
+O menu permanece ativo por meio de um laço `while` até que a opção `6` seja escolhida.
+
+---
+
+## ▶️ Como executar
 
 ### 1. Clone o repositório
 
 ```bash
-git clone LINK-DO-SEU-REPOSITORIO
+git clone URL_DO_REPOSITORIO
 ```
 
 ### 2. Acesse a pasta
 
 ```bash
-cd NOME-DA-PASTA
+cd NOME_DA_PASTA
 ```
 
 ### 3. Abra o projeto
@@ -135,16 +160,13 @@ Abra o arquivo `index.html` no navegador.
 
 Também é possível utilizar a extensão **Live Server** no Visual Studio Code.
 
-### 4. Utilize o menu
-
-As opções serão exibidas por meio de caixas de diálogo no navegador.
-
 ---
 
 ## 🧪 Testes realizados
 
-Antes do lançamento da versão, foram testados os seguintes cenários:
+Foram testados os seguintes cenários:
 
+- Consulta do saldo inicial;
 - Depósito válido;
 - Depósito com valor zero;
 - Depósito negativo;
@@ -158,38 +180,49 @@ Antes do lançamento da versão, foram testados os seguintes cenários:
 - Saque maior que o saldo;
 - Saque com campo vazio;
 - Cancelamento de saque;
-- Consulta de saldo;
 - Extrato sem operações;
-- Extrato com apenas depósitos;
-- Extrato com apenas saques;
 - Extrato com depósitos e saques;
-- Numeração das transações;
-- Cálculo do total depositado;
-- Cálculo do total sacado;
-- Contagem da quantidade de operações;
-- Verificação do saldo final;
-- Opções inválidas no menu.
+- Sequência dos identificadores;
+- Registro de data e horário;
+- Total depositado;
+- Total sacado;
+- Quantidade de operações;
+- Saldo final;
+- Exibição dos dados do cliente;
+- Opções inválidas no menu;
+- Encerramento do sistema.
 
 ---
 
 ## 📋 Histórico de versões
 
+### v3.0.0 — Objetos e dados da conta
+
+- Cadastro básico do cliente;
+- Dados do cliente organizados em objeto;
+- Conta como objeto interno;
+- Saldo armazenado dentro da conta;
+- Transações armazenadas como objetos;
+- Um único Array de transações;
+- IDs únicos;
+- Data e horário das operações;
+- Nova opção para visualizar os dados da conta;
+- Extrato adaptado para Arrays de Objetos.
+
 ### v2.1.0 — Resumo da conta
 
 - Numeração das transações;
-- Exibição do saldo atual no extrato;
-- Quantidade total de operações;
-- Cálculo do total depositado;
-- Cálculo do total sacado;
-- Criação do resumo da conta;
-- Melhorias na apresentação do extrato.
+- Exibição do saldo atual;
+- Quantidade de operações;
+- Total depositado;
+- Total sacado;
+- Resumo da conta.
 
 ### v2.0.1 — Correções e melhorias
 
 - Tratamento de operações canceladas;
 - Tratamento de campos vazios;
 - Validação de valores não numéricos;
-- Melhor diferenciação entre valor inválido e saldo insuficiente;
 - Melhorias nas mensagens;
 - Ajustes de organização e formatação.
 
@@ -198,17 +231,15 @@ Antes do lançamento da versão, foram testados os seguintes cenários:
 - Criação do histórico de transações;
 - Registro de depósitos;
 - Registro de saques;
-- Implementação da opção “Ver extrato”;
-- Utilização de Arrays;
-- Tratamento de histórico vazio.
+- Implementação do extrato;
+- Utilização de Arrays.
 
 ### v1.1.0 — Validações
 
 - Bloqueio de depósitos inválidos;
 - Bloqueio de saques inválidos;
 - Verificação de saldo insuficiente;
-- Tratamento de opções inválidas;
-- Formatação dos valores com duas casas decimais.
+- Tratamento de opções inválidas.
 
 ### v1.0.0 — Primeira versão
 
@@ -216,8 +247,7 @@ Antes do lançamento da versão, foram testados os seguintes cenários:
 - Depósito;
 - Saque;
 - Menu interativo;
-- Laço de repetição `while`;
-- Separação das operações em funções.
+- Funções para operações bancárias.
 
 ---
 
@@ -233,23 +263,23 @@ Antes do lançamento da versão, foram testados os seguintes cenários:
 
 ## 🌿 Fluxo de desenvolvimento
 
-O projeto utiliza um fluxo organizado com Git e GitHub:
+O projeto utiliza o seguinte fluxo:
 
-1. Criação de uma branch para a nova versão;
-2. Desenvolvimento das funcionalidades;
-3. Commits separados por alteração;
-4. Envio da branch para o GitHub;
-5. Abertura de Pull Request;
-6. Merge na branch `main`;
-7. Criação da tag da versão;
-8. Publicação da Release;
-9. Exclusão da branch concluída.
+1. Criar uma branch;
+2. Desenvolver as funcionalidades;
+3. Fazer commits separados;
+4. Enviar a branch para o GitHub;
+5. Abrir um Pull Request;
+6. Fazer o merge na `main`;
+7. Criar a tag da versão;
+8. Publicar a Release;
+9. Apagar a branch concluída.
 
 ---
 
-## 📖 Natureza do projeto
+## 📖 Aviso
 
-Este é um projeto educacional criado para acompanhar minha evolução nos estudos de programação.
+Este é um projeto educacional.
 
 O sistema não possui conexão com bancos reais, não utiliza dados financeiros verdadeiros e não deve ser utilizado para operações bancárias reais.
 

@@ -1,26 +1,38 @@
-let saldo = 100;
-let opcao = 0;
-let historico = [];
-let historicoDepositos = [];
-let historicoSaques = [];
+let nomeCliente = prompt("Digite o nome do cliente:");
+let idadeCliente = Number(prompt("Digite a idade do cliente:"));
+let tipoConta = prompt("Digite o tipo da conta:");
 
+let cliente = {
+  nome: nomeCliente,
+  idade: idadeCliente,
+  conta: {
+    agencia: "0001",
+    numero: "12345-6",
+    tipo: tipoConta,
+    saldo: 100,
+    transacoes: [],
+  },
+};
+
+let proximoId = 1;
+let opcao = 0;
 // Exibe o saldo atual da conta
 function consultarSaldo() {
-  return saldo;
+  return cliente.conta.saldo;
 }
 
 // Soma o valor do depósito ao saldo atual
-function depositar(saldo, depositoFeito) {
-  return saldo + depositoFeito;
+function depositar(saldoAtual, depositoFeito) {
+  return saldoAtual + depositoFeito;
 }
 
 // Subtrai o valor do saque do saldo
-function sacar(saldo, saqueFeito) {
-  return saldo - saqueFeito;
+function sacar(saldoAtual, saqueFeito) {
+  return saldoAtual - saqueFeito;
 }
 
 // Mantém o sistema em execução até o usuário escolher a opção "Sair"
-while (opcao !== 5) {
+while (opcao !== 6) {
   opcao = Number(
     prompt(`
 Escolha uma opção:
@@ -29,7 +41,8 @@ Escolha uma opção:
 2 - Depositar
 3 - Sacar
 4 - Ver extrato
-5 - Sair
+5 - Ver dados da conta
+6 - Sair
 `),
   );
   // Consultar saldo disponível
@@ -49,11 +62,17 @@ R$ ${consultarSaldo().toFixed(2)}`);
       if (Number.isNaN(depositoFeito)) {
         alert("Valor inválido. Digite apenas números.");
       } else if (depositoFeito > 0) {
-        saldo = depositar(saldo, depositoFeito);
-        historicoDepositos.push(depositoFeito);
+        cliente.conta.saldo = depositar(cliente.conta.saldo, depositoFeito);
+        let momentoDaTransacao = new Date();
+        cliente.conta.transacoes.push({
+          id: proximoId,
+          tipo: "deposito",
+          valor: depositoFeito,
+          momento: momentoDaTransacao,
+        });
+        proximoId++;
         alert(`Depósito realizado!
-Novo saldo: R$ ${saldo.toFixed(2)}`);
-        historico.push(`Depósito: R$ ${depositoFeito.toFixed(2)}`);
+Novo saldo: R$ ${cliente.conta.saldo.toFixed(2)}`);
       } else {
         alert("Depósito inválido! Digite um valor maior que R$ 0,00.");
       }
@@ -70,12 +89,19 @@ Novo saldo: R$ ${saldo.toFixed(2)}`);
       let saqueFeito = Number(saida);
       if (Number.isNaN(saqueFeito)) {
         alert("Valor inválido. Digite apenas números.");
-      } else if (saqueFeito > 0 && saqueFeito <= saldo) {
-        saldo = sacar(saldo, saqueFeito);
-        historicoSaques.push(saqueFeito);
+      } else if (saqueFeito > 0 && saqueFeito <= cliente.conta.saldo) {
+        cliente.conta.saldo = sacar(cliente.conta.saldo, saqueFeito);
+        let momentoDaTransacao = new Date();
+        cliente.conta.transacoes.push({
+          id: proximoId,
+          tipo: "saque",
+          valor: saqueFeito,
+          momento: momentoDaTransacao,
+        });
+
+        proximoId++;
         alert(`Saque realizado!
-Novo saldo disponível: R$ ${saldo.toFixed(2)}`);
-        historico.push(`Saque: R$ ${saqueFeito.toFixed(2)}`);
+Novo saldo disponível: R$ ${cliente.conta.saldo.toFixed(2)}`);
       } else if (saqueFeito <= 0) {
         alert("Valor de saque inválido! Digite um valor maior que R$ 0,00.");
       } else {
@@ -86,20 +112,39 @@ Novo saldo disponível: R$ ${saldo.toFixed(2)}`);
 
   // Ver extrato
   else if (opcao === 4) {
-    if (historico.length > 0) {
+    if (cliente.conta.transacoes.length > 0) {
       let extrato = "";
-      for (let i = 0; i < historico.length; i++) {
-        extrato = extrato + `${i + 1} - ${historico[i]}\n`;
+
+      for (let i = 0; i < cliente.conta.transacoes.length; i++) {
+        let horarioFormatado = cliente.conta.transacoes[
+          i
+        ].momento.toLocaleTimeString("pt-BR", {
+          hour: "2-digit",
+          minute: "2-digit",
+        });
+        let dataFormatada =
+          cliente.conta.transacoes[i].momento.toLocaleDateString("pt-BR");
+        extrato =
+          extrato +
+          `${cliente.conta.transacoes[i].id} - ${cliente.conta.transacoes[i].tipo}: R$ ${cliente.conta.transacoes[i].valor.toFixed(2)} - ${dataFormatada} às ${horarioFormatado}\n`;
       }
+
       let totalDepositado = 0;
-      for (let i = 0; i < historicoDepositos.length; i++) {
-        totalDepositado = totalDepositado + historicoDepositos[i];
+
+      for (let i = 0; i < cliente.conta.transacoes.length; i++) {
+        if (cliente.conta.transacoes[i].tipo === "deposito") {
+          totalDepositado = totalDepositado + cliente.conta.transacoes[i].valor;
+        }
       }
 
       let totalSacado = 0;
-      for (let i = 0; i < historicoSaques.length; i++) {
-        totalSacado = totalSacado + historicoSaques[i];
+
+      for (let i = 0; i < cliente.conta.transacoes.length; i++) {
+        if (cliente.conta.transacoes[i].tipo === "saque") {
+          totalSacado = totalSacado + cliente.conta.transacoes[i].valor;
+        }
       }
+
       alert(`📄 EXTRATO BANCÁRIO
 
 =============================
@@ -111,18 +156,39 @@ ${extrato}
 
 Total depositado: R$ ${totalDepositado.toFixed(2)}
 Total sacado: R$ ${totalSacado.toFixed(2)}
-Quantidade de operações: ${historico.length}
-Saldo atual: R$ ${saldo.toFixed(2)}
+Quantidade de operações: ${cliente.conta.transacoes.length}
+Saldo atual: R$ ${cliente.conta.saldo.toFixed(2)}
 
 =============================`);
     } else {
       alert("Nenhuma operação foi realizada.");
     }
   } else if (opcao === 5) {
+    alert(` 👤 DADOS DO CLIENTE
+=============================
+
+Nome: ${cliente.nome}
+Idade: ${cliente.idade} anos
+
+=============================
+🏦 DADOS DA CONTA
+
+Agência: ${cliente.conta.agencia}
+Número: ${cliente.conta.numero}
+Tipo: ${cliente.conta.tipo}
+
+=============================`);
+  }
+
+  // Sair
+  else if (opcao === 6) {
     alert("Obrigado por utilizar nosso banco!");
-  } else {
+  }
+
+  // Opção inválida
+  else {
     alert(`❌ Opção inválida!
 
-Escolha uma opção entre 1 e 5.`);
+Escolha uma opção entre 1 e 6.`);
   }
 }
