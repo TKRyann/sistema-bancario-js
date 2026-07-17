@@ -6,9 +6,9 @@ let cliente = {
     numero: "12345-6",
     tipo: "Conta corrente",
     saldo: 100,
+    transacoes: [],
   },
 };
-let transacoes = [];
 let proximoId = 1;
 let opcao = 0;
 // Exibe o saldo atual da conta
@@ -58,7 +58,7 @@ R$ ${consultarSaldo().toFixed(2)}`);
       } else if (depositoFeito > 0) {
         cliente.conta.saldo = depositar(cliente.conta.saldo, depositoFeito);
         let momentoDaTransacao = new Date();
-        transacoes.push({
+        cliente.conta.transacoes.push({
           id: proximoId,
           tipo: "deposito",
           valor: depositoFeito,
@@ -86,12 +86,13 @@ Novo saldo: R$ ${cliente.conta.saldo.toFixed(2)}`);
       } else if (saqueFeito > 0 && saqueFeito <= cliente.conta.saldo) {
         cliente.conta.saldo = sacar(cliente.conta.saldo, saqueFeito);
         let momentoDaTransacao = new Date();
-        transacoes.push({
+        cliente.conta.transacoes.push({
           id: proximoId,
           tipo: "saque",
           valor: saqueFeito,
           momento: momentoDaTransacao,
         });
+
         proximoId++;
         alert(`Saque realizado!
 Novo saldo disponível: R$ ${cliente.conta.saldo.toFixed(2)}`);
@@ -105,33 +106,36 @@ Novo saldo disponível: R$ ${cliente.conta.saldo.toFixed(2)}`);
 
   // Ver extrato
   else if (opcao === 4) {
-    if (transacoes.length > 0) {
+    if (cliente.conta.transacoes.length > 0) {
       let extrato = "";
 
-      for (let i = 0; i < transacoes.length; i++) {
-        let horarioFormatado = transacoes[i].momento.toLocaleTimeString(
-          "pt-BR",
-          { hour: "2-digit", minute: "2-digit" },
-        );
-        let dataFormatada = transacoes[i].momento.toLocaleDateString("pt-BR");
+      for (let i = 0; i < cliente.conta.transacoes.length; i++) {
+        let horarioFormatado = cliente.conta.transacoes[
+          i
+        ].momento.toLocaleTimeString("pt-BR", {
+          hour: "2-digit",
+          minute: "2-digit",
+        });
+        let dataFormatada =
+          cliente.conta.transacoes[i].momento.toLocaleDateString("pt-BR");
         extrato =
           extrato +
-          `${transacoes[i].id} - ${transacoes[i].tipo}: R$ ${transacoes[i].valor.toFixed(2)} - ${dataFormatada} às ${horarioFormatado}\n`;
+          `${cliente.conta.transacoes[i].id} - ${cliente.conta.transacoes[i].tipo}: R$ ${cliente.conta.transacoes[i].valor.toFixed(2)} - ${dataFormatada} às ${horarioFormatado}\n`;
       }
 
       let totalDepositado = 0;
 
-      for (let i = 0; i < transacoes.length; i++) {
-        if (transacoes[i].tipo === "deposito") {
-          totalDepositado = totalDepositado + transacoes[i].valor;
+      for (let i = 0; i < cliente.conta.transacoes.length; i++) {
+        if (cliente.conta.transacoes[i].tipo === "deposito") {
+          totalDepositado = totalDepositado + cliente.conta.transacoes[i].valor;
         }
       }
 
       let totalSacado = 0;
 
-      for (let i = 0; i < transacoes.length; i++) {
-        if (transacoes[i].tipo === "saque") {
-          totalSacado = totalSacado + transacoes[i].valor;
+      for (let i = 0; i < cliente.conta.transacoes.length; i++) {
+        if (cliente.conta.transacoes[i].tipo === "saque") {
+          totalSacado = totalSacado + cliente.conta.transacoes[i].valor;
         }
       }
 
@@ -146,7 +150,7 @@ ${extrato}
 
 Total depositado: R$ ${totalDepositado.toFixed(2)}
 Total sacado: R$ ${totalSacado.toFixed(2)}
-Quantidade de operações: ${transacoes.length}
+Quantidade de operações: ${cliente.conta.transacoes.length}
 Saldo atual: R$ ${cliente.conta.saldo.toFixed(2)}
 
 =============================`);
