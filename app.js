@@ -64,7 +64,6 @@ R$ ${consultarSaldo().toFixed(2)}`);
           valor: depositoFeito,
           momento: momentoDaTransacao,
         });
-        console.log(transacoes);
         proximoId++;
         alert(`Depósito realizado!
 Novo saldo: R$ ${cliente.conta.saldo.toFixed(2)}`);
@@ -93,7 +92,6 @@ Novo saldo: R$ ${cliente.conta.saldo.toFixed(2)}`);
           valor: saqueFeito,
           momento: momentoDaTransacao,
         });
-        console.log(transacoes);
         proximoId++;
         alert(`Saque realizado!
 Novo saldo disponível: R$ ${cliente.conta.saldo.toFixed(2)}`);
