@@ -93,6 +93,7 @@ Novo saldo: R$ ${cliente.conta.saldo.toFixed(2)}`);
           valor: saqueFeito,
           momento: momentoDaTransacao,
         });
+        console.log(transacoes);
         proximoId++;
         alert(`Saque realizado!
 Novo saldo disponível: R$ ${cliente.conta.saldo.toFixed(2)}`);
@@ -110,9 +111,14 @@ Novo saldo disponível: R$ ${cliente.conta.saldo.toFixed(2)}`);
       let extrato = "";
 
       for (let i = 0; i < transacoes.length; i++) {
+        let horarioFormatado = transacoes[i].momento.toLocaleTimeString(
+          "pt-BR",
+          { hour: "2-digit", minute: "2-digit" },
+        );
+        let dataFormatada = transacoes[i].momento.toLocaleDateString("pt-BR");
         extrato =
           extrato +
-          `${i + 1} - ${transacoes[i].tipo}: R$ ${transacoes[i].valor.toFixed(2)}\n`;
+          `${transacoes[i].id} - ${transacoes[i].tipo}: R$ ${transacoes[i].valor.toFixed(2)} - ${dataFormatada} às ${horarioFormatado}\n`;
       }
 
       let totalDepositado = 0;
