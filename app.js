@@ -27,7 +27,7 @@ function sacar(saldoAtual, saqueFeito) {
 }
 
 // Mantém o sistema em execução até o usuário escolher a opção "Sair"
-while (opcao !== 5) {
+while (opcao !== 6) {
   opcao = Number(
     prompt(`
 Escolha uma opção:
@@ -36,7 +36,8 @@ Escolha uma opção:
 2 - Depositar
 3 - Sacar
 4 - Ver extrato
-5 - Sair
+5 - Ver dados da conta
+6 - Sair
 `),
   );
   // Consultar saldo disponível
@@ -157,10 +158,11 @@ Saldo atual: R$ ${cliente.conta.saldo.toFixed(2)}
     } else {
       alert("Nenhuma operação foi realizada.");
     }
+  } else if (opcao === 5) {
   }
 
   // Sair
-  else if (opcao === 5) {
+  else if (opcao === 6) {
     alert("Obrigado por utilizar nosso banco!");
   }
 
@@ -168,6 +170,6 @@ Saldo atual: R$ ${cliente.conta.saldo.toFixed(2)}
   else {
     alert(`❌ Opção inválida!
 
-Escolha uma opção entre 1 e 5.`);
+Escolha uma opção entre 1 e 6.`);
   }
 }
