@@ -57,11 +57,14 @@ R$ ${consultarSaldo().toFixed(2)}`);
         alert("Valor inválido. Digite apenas números.");
       } else if (depositoFeito > 0) {
         cliente.conta.saldo = depositar(cliente.conta.saldo, depositoFeito);
+        let momentoDaTransacao = new Date();
         transacoes.push({
           id: proximoId,
           tipo: "deposito",
           valor: depositoFeito,
+          momento: momentoDaTransacao,
         });
+        console.log(transacoes);
         proximoId++;
         alert(`Depósito realizado!
 Novo saldo: R$ ${cliente.conta.saldo.toFixed(2)}`);
@@ -83,10 +86,12 @@ Novo saldo: R$ ${cliente.conta.saldo.toFixed(2)}`);
         alert("Valor inválido. Digite apenas números.");
       } else if (saqueFeito > 0 && saqueFeito <= cliente.conta.saldo) {
         cliente.conta.saldo = sacar(cliente.conta.saldo, saqueFeito);
+        let momentoDaTransacao = new Date();
         transacoes.push({
           id: proximoId,
           tipo: "saque",
           valor: saqueFeito,
+          momento: momentoDaTransacao,
         });
         proximoId++;
         alert(`Saque realizado!
