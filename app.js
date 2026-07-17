@@ -9,6 +9,7 @@ let cliente = {
     transacoes: [],
   },
 };
+
 let proximoId = 1;
 let opcao = 0;
 // Exibe o saldo atual da conta
@@ -159,6 +160,20 @@ Saldo atual: R$ ${cliente.conta.saldo.toFixed(2)}
       alert("Nenhuma operação foi realizada.");
     }
   } else if (opcao === 5) {
+    alert(` 👤 DADOS DO CLIENTE
+=============================
+
+Nome: ${cliente.nome}
+Idade: ${cliente.idade} anos
+
+=============================
+🏦 DADOS DA CONTA
+
+Agência: ${cliente.conta.agencia}
+Número: ${cliente.conta.numero}
+Tipo: ${cliente.conta.tipo}
+
+=============================`);
   }
 
   // Sair
