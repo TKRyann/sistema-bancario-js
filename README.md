@@ -1,8 +1,8 @@
 # 🏦 Sistema Bancário em JavaScript
 
-Projeto educacional desenvolvido para praticar lógica de programação e os fundamentos de JavaScript por meio da evolução contínua de um sistema bancário.
+Projeto educacional desenvolvido para praticar lógica de programação e fundamentos de JavaScript por meio da evolução contínua de um sistema bancário.
 
-O sistema funciona no navegador utilizando `prompt()` e `alert()`. Atualmente, permite cadastrar um cliente, consultar o saldo, realizar depósitos e saques, visualizar o extrato e consultar os dados da conta.
+O sistema funciona no navegador utilizando `prompt()` e `alert()`. Atualmente, permite cadastrar um cliente, consultar o saldo, realizar depósitos e saques, visualizar o extrato, filtrar transações, buscar uma operação pelo ID e consultar os dados da conta.
 
 ---
 
@@ -10,7 +10,7 @@ O sistema funciona no navegador utilizando `prompt()` e `alert()`. Atualmente, p
 
 🚧 Projeto em desenvolvimento
 
-**Versão atual: `v3.0.0`**
+**Versão atual: `v3.1.0`**
 
 O projeto recebe novas funcionalidades conforme novos conteúdos de JavaScript são estudados.
 
@@ -40,7 +40,7 @@ Além de JavaScript, o projeto também é utilizado para praticar:
 - Escolha do tipo da conta;
 - Exibição dos dados do cliente;
 - Exibição da agência, número e tipo da conta;
-- Dados do cliente e da conta organizados em objetos.
+- Dados organizados em objetos.
 
 ### Operações bancárias
 
@@ -60,32 +60,43 @@ Além de JavaScript, o projeto também é utilizado para praticar:
 - Transações armazenadas como objetos;
 - Identificador único para cada transação;
 - Registro de data e horário;
-- Numeração das operações;
+- Exibição do extrato completo;
 - Total depositado;
 - Total sacado;
-- Quantidade de operações;
+- Quantidade de depósitos;
+- Quantidade de saques;
+- Quantidade total de operações;
 - Saldo atual no resumo da conta;
 - Mensagem para extrato sem movimentações.
 
+### Filtros e busca
+
+- Filtro para visualizar apenas depósitos;
+- Filtro para visualizar apenas saques;
+- Busca de uma transação pelo ID;
+- Mensagem quando o ID não é encontrado;
+- Validação do ID informado;
+- Mensagem quando não existem operações do tipo escolhido.
+
 ---
 
-## 🆕 Novidades da v3.0.0
+## 🆕 Novidades da v3.1.0
 
-A versão `v3.0.0` reorganiza os dados do sistema utilizando Objetos e Arrays de Objetos.
+A versão `v3.1.0` adiciona novos recursos utilizando métodos de Arrays.
 
 ### Principais mudanças
 
-- Criação do objeto `cliente`;
-- Criação do objeto `conta` dentro do cliente;
-- Saldo movido para `cliente.conta.saldo`;
-- Transações movidas para `cliente.conta.transacoes`;
-- Substituição dos Arrays antigos por um único Array de transações;
-- Depósitos e saques registrados como objetos;
-- Identificador único para cada operação;
-- Registro de data e horário;
-- Cadastro básico do cliente;
-- Nova opção para visualizar os dados da conta;
-- Extrato adaptado para trabalhar com objetos.
+- Uso de `filter()` para separar depósitos e saques;
+- Uso de `find()` para buscar uma transação pelo ID;
+- Uso de `reduce()` para calcular os totais;
+- Nova opção para filtrar transações;
+- Nova opção para buscar uma transação;
+- Exibição da quantidade de depósitos;
+- Exibição da quantidade de saques;
+- Melhor organização da formatação das transações;
+- Atualização do menu principal de 6 para 8 opções.
+
+---
 
 ## 🧠 Conceitos praticados
 
@@ -93,6 +104,7 @@ A versão `v3.0.0` reorganiza os dados do sistema utilizando Objetos e Arrays de
 - Tipos de dados;
 - Conversão com `Number()`;
 - Validação com `Number.isNaN()`;
+- Validação com `Number.isInteger()`;
 - Condicionais com `if`, `else if` e `else`;
 - Operadores de comparação e operadores lógicos;
 - Laços `while` e `for`;
@@ -101,100 +113,36 @@ A versão `v3.0.0` reorganiza os dados do sistema utilizando Objetos e Arrays de
 - Escopo de variáveis;
 - Arrays;
 - Objetos;
-- Objetos dentro de objetos;
+- Objetos aninhados;
 - Arrays de objetos;
-- Propriedades e valores;
 - Acesso e alteração de propriedades;
 - Método `push()`;
+- Método `filter()`;
+- Método `find()`;
+- Método `reduce()`;
 - Propriedade `length`;
-- Índices de Arrays;
-- Variáveis acumuladoras;
 - Template strings;
 - Formatação com `toFixed()`;
 - Objeto `Date`;
 - `toLocaleDateString()`;
-- `toLocaleTimeString()`.
-
----
-
-## ⚙️ Como o sistema funciona
-
-Ao iniciar o projeto, o sistema solicita:
-
-1. Nome do cliente;
-2. Idade;
-3. Tipo da conta.
-
-Em seguida, o menu principal é exibido:
-
-```text
-1 - Consultar saldo
-2 - Depositar
-3 - Sacar
-4 - Ver extrato
-5 - Ver dados da conta
-6 - Sair
-```
-
-O menu permanece ativo por meio de um laço `while` até que a opção `6` seja escolhida.
-
----
-
-## ▶️ Como executar
-
-### 1. Clone o repositório
-
-```bash
-git clone URL_DO_REPOSITORIO
-```
-
-### 2. Acesse a pasta
-
-```bash
-cd NOME_DA_PASTA
-```
-
-### 3. Abra o projeto
-
-Abra o arquivo `index.html` no navegador.
-
-Também é possível utilizar a extensão **Live Server** no Visual Studio Code.
-
----
-
-## 🧪 Testes realizados
-
-Foram testados os seguintes cenários:
-
-- Consulta do saldo inicial;
-- Depósito válido;
-- Depósito com valor zero;
-- Depósito negativo;
-- Depósito com letras;
-- Depósito com campo vazio;
-- Cancelamento de depósito;
-- Saque válido;
-- Saque com valor zero;
-- Saque negativo;
-- Saque com letras;
-- Saque maior que o saldo;
-- Saque com campo vazio;
-- Cancelamento de saque;
-- Extrato sem operações;
-- Extrato com depósitos e saques;
-- Sequência dos identificadores;
-- Registro de data e horário;
-- Total depositado;
-- Total sacado;
-- Quantidade de operações;
-- Saldo final;
-- Exibição dos dados do cliente;
-- Opções inválidas no menu;
-- Encerramento do sistema.
+- `toLocaleTimeString()`;
+- Valor `undefined`.
 
 ---
 
 ## 📋 Histórico de versões
+
+### v3.1.0 — Filtros, busca e cálculos
+
+- Implementação de `filter()`;
+- Implementação de `find()`;
+- Implementação de `reduce()`;
+- Filtro de depósitos;
+- Filtro de saques;
+- Busca de transação por ID;
+- Totais calculados com `reduce()`;
+- Quantidade de depósitos e saques;
+- Novo menu com oito opções.
 
 ### v3.0.0 — Objetos e dados da conta
 
