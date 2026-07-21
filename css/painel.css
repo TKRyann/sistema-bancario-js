@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #39ff14;
+  --secondary-color: #030712;
+  --color-text: #5c646e;
+  --primary-font: "Inter", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--secondary-color);
+  color: var(--color-text);
+  font-family: var(--primary-font);
+} 
+
+.aplicacao{
+  min-height: 
+  display:
+}
