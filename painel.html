@@ -1,17 +1,387 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Sistema Bancario</title>
+  <meta charset="UTF-8" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Painel | K2 Banco Digital</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/painel.css" />
+
+  <script src="js/painel.js" defer></script>
 </head>
 
 <body>
-  <h1>sistema bancario javascript</h1>
+  <div class="aplicacao">
+    <!-- Menu lateral -->
+    <aside class="menu-lateral">
+      <div class="marca">
+        <a href="#inicio" class="marca-link">
+          <span class="marca-simbolo">
+            K<sup>2</sup>
+          </span>
+
+          <span class="marca-texto">
+            Banco Digital
+          </span>
+        </a>
+      </div>
+
+      <nav class="navegacao" aria-label="Navegação principal">
+        <a href="#inicio" class="item-menu item-menu-ativo">
+          <span class="icone-menu">⌂</span>
+          <span>Início</span>
+        </a>
+
+        <a href="#operacoes" class="item-menu">
+          <span class="icone-menu">↔</span>
+          <span>Operações</span>
+        </a>
+
+        <a href="#extrato" class="item-menu">
+          <span class="icone-menu">▤</span>
+          <span>Extrato</span>
+        </a>
+      </nav>
+
+      <div class="menu-rodape">
+        <div class="perfil-lateral">
+          <div class="avatar avatar-pequeno">
+            KR
+          </div>
+
+          <div class="perfil-informacoes">
+            <strong id="nome-cliente-menu">
+              Kherlysson Ryann
+            </strong>
+
+            <span>Cliente K2</span>
+          </div>
+        </div>
+
+        <a href="./index.html" class="botao-sair">
+          <span>⇥</span>
+          Sair
+        </a>
+      </div>
+    </aside>
+
+    <!-- Conteúdo principal -->
+    <main class="conteudo-principal" id="inicio">
+      <!-- Cabeçalho -->
+      <header class="cabecalho-painel">
+        <div>
+          <p class="texto-destaque">K2 Banco Digital</p>
+
+          <h1>
+            Olá,
+            <span id="nome-cliente-cabecalho">
+              Kherlysson
+            </span>
+          </h1>
+
+          <p class="texto-secundario">
+            Bem-vindo ao seu painel bancário.
+          </p>
+        </div>
+
+        <div class="perfil-cabecalho">
+          <div class="perfil-texto">
+            <strong id="nome-cliente-perfil">
+              Kherlysson Ryann
+            </strong>
+
+            <span id="tipo-conta-perfil">
+              Conta corrente
+            </span>
+          </div>
+
+          <div class="avatar">
+            KR
+          </div>
+        </div>
+      </header>
+
+      <!-- Cartões de resumo -->
+      <section class="cards-resumo" aria-label="Resumo da conta">
+        <!-- Saldo -->
+        <article class="card card-saldo">
+          <div class="card-cabecalho">
+            <div>
+              <span class="card-subtitulo">
+                Saldo disponível
+              </span>
+
+              <p class="saldo" id="saldo-valor">
+                R$ 100,00
+              </p>
+            </div>
+
+            <button type="button" class="botao-icone" id="botao-mostrar-saldo" aria-label="Mostrar ou esconder saldo" title="Mostrar ou esconder saldo">
+              ◉
+            </button>
+          </div>
+
+          <p class="card-descricao">
+            Valor disponível para suas operações.
+          </p>
+        </article>
+
+        <!-- Dados da conta -->
+        <article class="card">
+          <div class="card-titulo">
+            <span class="card-icone">▣</span>
+            <h2>Dados da conta</h2>
+          </div>
+
+          <dl class="lista-dados">
+            <div>
+              <dt>Agência</dt>
+              <dd id="conta-agencia">0001</dd>
+            </div>
+
+            <div>
+              <dt>Número</dt>
+              <dd id="conta-numero">12345-6</dd>
+            </div>
+
+            <div>
+              <dt>Tipo</dt>
+              <dd id="conta-tipo">Conta corrente</dd>
+            </div>
+          </dl>
+        </article>
+
+        <!-- Resumo -->
+        <article class="card">
+          <div class="card-titulo">
+            <span class="card-icone">▥</span>
+            <h2>Resumo</h2>
+          </div>
+
+          <div class="lista-resumo">
+            <div>
+              <span>Operações</span>
+              <strong id="quantidade-operacoes">0</strong>
+            </div>
+
+            <div>
+              <span>Total depositado</span>
+              <strong id="total-depositado" class="valor-positivo">
+                R$ 0,00
+              </strong>
+            </div>
+
+            <div>
+              <span>Total sacado</span>
+              <strong id="total-sacado" class="valor-negativo">
+                R$ 0,00
+              </strong>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- Operações -->
+      <section class="secao" id="operacoes">
+        <div class="secao-cabecalho">
+          <div>
+            <p class="texto-destaque">Movimentações</p>
+            <h2>Operações bancárias</h2>
+          </div>
+
+          <p>
+            Escolha uma operação e informe o valor.
+          </p>
+        </div>
+
+        <div class="cards-operacoes">
+          <!-- Depósito -->
+          <article class="card card-operacao">
+            <div class="card-titulo">
+              <span class="card-icone icone-deposito">↓</span>
+
+              <div>
+                <h3>Depositar</h3>
+                <p>Adicione dinheiro à sua conta.</p>
+              </div>
+            </div>
+
+            <form id="form-deposito">
+              <div class="campo-formulario">
+                <label for="valor-deposito">
+                  Valor do depósito
+                </label>
+
+                <div class="campo-monetario">
+                  <span>R$</span>
+
+                  <input type="number" id="valor-deposito" name="valor-deposito" placeholder="0,00" min="0.01" step="0.01" />
+                </div>
+              </div>
+
+              <p class="mensagem-formulario" id="mensagem-deposito" aria-live="polite"></p>
+
+              <button type="submit" class="botao-principal" id="botao-depositar">
+                Confirmar depósito
+              </button>
+            </form>
+          </article>
+
+          <!-- Saque -->
+          <article class="card card-operacao">
+            <div class="card-titulo">
+              <span class="card-icone icone-saque">↑</span>
+
+              <div>
+                <h3>Sacar</h3>
+                <p>Retire um valor do seu saldo.</p>
+              </div>
+            </div>
+
+            <form id="form-saque">
+              <div class="campo-formulario">
+                <label for="valor-saque">
+                  Valor do saque
+                </label>
+
+                <div class="campo-monetario">
+                  <span>R$</span>
+
+                  <input type="number" id="valor-saque" name="valor-saque" placeholder="0,00" min="0.01" step="0.01" />
+                </div>
+              </div>
+
+              <p class="mensagem-formulario" id="mensagem-saque" aria-live="polite"></p>
+
+              <button type="submit" class="botao-secundario" id="botao-sacar">
+                Confirmar saque
+              </button>
+            </form>
+          </article>
+
+          <!-- Segurança -->
+          <article class="card card-seguranca">
+            <div class="card-titulo">
+              <span class="card-icone">✓</span>
+
+              <div>
+                <h3>Segurança</h3>
+                <p>Proteja seus dados bancários.</p>
+              </div>
+            </div>
+
+            <ul class="lista-seguranca">
+              <li>
+                Nunca compartilhe sua senha.
+              </li>
+
+              <li>
+                Confira o valor antes de confirmar.
+              </li>
+
+              <li>
+                Acompanhe sempre o seu extrato.
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- Extrato -->
+      <section class="secao" id="extrato">
+        <div class="secao-cabecalho">
+          <div>
+            <p class="texto-destaque">Movimentações</p>
+            <h2>Extrato bancário</h2>
+          </div>
+
+          <p>
+            Consulte, filtre ou busque suas transações.
+          </p>
+        </div>
+
+        <article class="card card-extrato">
+          <!-- Filtros -->
+          <div class="ferramentas-extrato">
+            <div class="grupo-filtro">
+              <label for="filtro-transacoes">
+                Filtrar por tipo
+              </label>
+
+              <select id="filtro-transacoes">
+                <option value="todas">
+                  Todas as transações
+                </option>
+
+                <option value="deposito">
+                  Somente depósitos
+                </option>
+
+                <option value="saque">
+                  Somente saques
+                </option>
+              </select>
+            </div>
+
+            <form class="form-busca" id="form-busca-transacao">
+              <div class="grupo-filtro">
+                <label for="busca-transacao-id">
+                  Buscar por ID
+                </label>
+
+                <div class="campo-busca">
+                  <input type="number" id="busca-transacao-id" placeholder="Digite o ID" min="1" />
+
+                  <button type="submit" id="botao-buscar-transacao">
+                    Buscar
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <p id="mensagem-extrato" class="mensagem-extrato" aria-live="polite"></p>
+
+          <!-- Tabela -->
+          <div class="tabela-container">
+            <table class="tabela-extrato">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Tipo</th>
+                  <th>Data</th>
+                  <th>Horário</th>
+                  <th>Valor</th>
+                </tr>
+              </thead>
+
+              <tbody id="lista-transacoes">
+                <tr class="linha-vazia" id="linha-sem-transacoes">
+                  <td colspan="5">
+                    Nenhuma operação foi realizada.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <footer class="rodape">
+        <p>
+          © 2026 K2 Banco Digital — Projeto educacional.
+        </p>
+      </footer>
+    </main>
+  </div>
 </body>
-<script src="/js/script.js"></script>
 
 </html>
