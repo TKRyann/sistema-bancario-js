@@ -554,11 +554,36 @@ const mensagemDeposito = document.getElementById("mensagem-deposito");
 formDeposito.addEventListener("submit", function (evento) {
   evento.preventDefault();
 
-  const entradaDeposito = valorDeposito.value;
+  const entradaDeposito = valorDepositado.value;
   const depositoFeito = Number(entradaDeposito);
 
   if (entradaDeposito.trim() === "") {
     mensagemDeposito.textContent = "Informe um valor para o depósito.";
     return;
   }
+  if (!Number.isFinite(depositoFeito)) {
+    mensagemDeposito.textContent = "Digite um valor válido.";
+    return;
+  }
+  if (depositoFeito <= 0) {
+    mensagemDeposito.textContent = "O depósito deve ser maior que zero.";
+    return;
+  }
+  mensagemDeposito.textContent = "";
+  console.log("Valor válido:", depositoFeito);
 });
+
+cliente.conta.saldo = depositar(cliente.conta.saldo, depositoFeito);
+console.log(cliente.conta.saldo);
+saldoValor.textContent = formatarMoeda(cliente.conta.saldo);
+mensagemDeposito.textContent = "Depósito realizado com sucesso.";
+valorDepositado.value = "";
+
+cliente.conta.transacoes.push({
+  id: proximoId,
+  tipo: "deposito",
+  valor: depositoFeito,
+  momento: new Date(),
+});
+proximoId++;
+console.log(cliente.conta.transacoes);
