@@ -539,9 +539,26 @@ const botaoMostrarSaldo = document.getElementById("botao-mostrar-saldo");
 let saldoVisivel = true;
 
 botaoMostrarSaldo.addEventListener("click", function () {
-  if ((saldoVisivel = !saldoVisivel)) {
+  if (saldoVisivel) {
     saldoValor.textContent = "****";
   } else {
     saldoValor.textContent = formatarMoeda(cliente.conta.saldo);
+  }
+  saldoVisivel = !saldoVisivel;
+});
+
+const formDeposito = document.getElementById("form-deposito");
+const valorDepositado = document.getElementById("valor-deposito");
+const mensagemDeposito = document.getElementById("mensagem-deposito");
+
+formDeposito.addEventListener("submit", function (evento) {
+  evento.preventDefault();
+
+  const entradaDeposito = valorDeposito.value;
+  const depositoFeito = Number(entradaDeposito);
+
+  if (entradaDeposito.trim() === "") {
+    mensagemDeposito.textContent = "Informe um valor para o depósito.";
+    return;
   }
 });
