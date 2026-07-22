@@ -693,3 +693,15 @@ formDeposito.addEventListener("submit", function (evento) {
 
   valorDepositado.value = "";
 });
+
+const formSaque = document.getElementById("form-saque");
+
+const valorSaque = document.getElementById("valor-saque");
+
+const mensagemSaque = document.getElementById("mensagem-saque");
+
+formSaque.addEventListener("submit", function (evento) {
+  evento.preventDefault();
+
+  console.log("Formulário de saque enviado");
+});
