@@ -587,3 +587,8 @@ cliente.conta.transacoes.push({
 });
 proximoId++;
 console.log(cliente.conta.transacoes);
+
+const quantidadeOperacacoes = document.getElementById("quantidade-operacoes");
+quantidadeOperacacoes.textContent = cliente.conta.transacoes.push();
+
+const totalDepositadoElemento = document.getElementById("total-depositado");
