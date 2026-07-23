@@ -757,10 +757,14 @@ formDeposito.addEventListener("submit", function (evento) {
   valorDepositado.value = "";
 });
 
+/* Elementos do saque */
+
 const formSaque = document.getElementById("form-saque");
 const valorSaque = document.getElementById("valor-saque");
 const mensagemSaque = document.getElementById("mensagem-saque");
 const totalSacadoElemento = document.getElementById("total-sacado");
+
+/* Realizar saque */
 
 formSaque.addEventListener("submit", function (evento) {
   evento.preventDefault();
@@ -768,35 +772,44 @@ formSaque.addEventListener("submit", function (evento) {
   const entradaSaque = valorSaque.value;
   const saqueFeito = Number(entradaSaque);
 
-  // Validar campo vazio
+  /* Validar campo vazio */
+
   if (entradaSaque.trim() === "") {
     mensagemSaque.textContent = "Informe um valor para o saque.";
+
     return;
   }
 
-  // Validar número
+  /* Validar valor não numérico */
+
   if (!Number.isFinite(saqueFeito)) {
     mensagemSaque.textContent = "Digite um valor válido.";
+
     return;
   }
 
-  // Bloquear zero e números negativos
+  /* Bloquear zero e valores negativos */
+
   if (saqueFeito <= 0) {
     mensagemSaque.textContent = "O saque deve ser maior que zero.";
+
     return;
   }
 
-  // Verificar saldo suficiente
+  /* Verificar saldo suficiente */
+
   if (saqueFeito > cliente.conta.saldo) {
     mensagemSaque.textContent = "Saldo insuficiente para realizar o saque.";
 
     return;
   }
 
-  // Atualizar o saldo do objeto
+  /* Atualizar o saldo do objeto */
+
   cliente.conta.saldo = sacar(cliente.conta.saldo, saqueFeito);
 
-  // Criar a transação de saque
+  /* Criar a transação */
+
   const novaTransacao = {
     id: proximoId,
     tipo: "saque",
@@ -804,80 +817,49 @@ formSaque.addEventListener("submit", function (evento) {
     momento: new Date(),
   };
 
-  // Registrar a transação no Array
+  /* Registrar a transação no Array */
+
   cliente.conta.transacoes.push(novaTransacao);
 
-  // Preparar o próximo ID
+  /* Preparar o próximo ID */
+
   proximoId++;
 
-  // Atualizar o saldo no painel
+  /* Atualizar o saldo no painel */
+
   if (saldoVisivel) {
     saldoValor.textContent = formatarMoeda(cliente.conta.saldo);
   } else {
     saldoValor.textContent = "••••••";
   }
 
-  // Atualizar a quantidade de operações
+  /* Atualizar a quantidade de operações */
+
   quantidadeOperacoes.textContent = cliente.conta.transacoes.length;
+
+  /* Filtrar somente os saques */
 
   const saques = cliente.conta.transacoes.filter(function (transacao) {
     return transacao.tipo === "saque";
   });
 
+  /* Calcular o total sacado */
+
   const totalSacado = calcularTotalTransacoes(saques);
+
+  /* Atualizar o total sacado no painel */
+
   totalSacadoElemento.textContent = formatarMoeda(totalSacado);
 
-  // Remover a mensagem de extrato vazio
-  if (linhaSemTransacoes && linhaSemTransacoes.isConnected) {
-    linhaSemTransacoes.remove();
-  }
+  /* Atualizar todo o extrato */
 
-  // Formatar data e horário da transação
-  const dataFormatada = novaTransacao.momento.toLocaleDateString("pt-BR");
+  renderizarTransacoes(cliente.conta.transacoes);
 
-  const horarioFormatado = novaTransacao.momento.toLocaleTimeString("pt-BR", {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
+  /* Mostrar mensagem de sucesso */
 
-  // Criar uma nova linha da tabela
-  const novaLinha = document.createElement("tr");
-
-  // Criar as células
-  const celulaId = document.createElement("td");
-  const celulaTipo = document.createElement("td");
-  const celulaData = document.createElement("td");
-  const celulaHorario = document.createElement("td");
-  const celulaValor = document.createElement("td");
-
-  // Preencher as células
-  celulaId.textContent = novaTransacao.id;
-  celulaTipo.textContent = "Saque";
-  celulaData.textContent = dataFormatada;
-  celulaHorario.textContent = horarioFormatado;
-  celulaValor.textContent = formatarMoeda(novaTransacao.valor);
-
-  // Aplicar as classes do CSS
-  celulaTipo.classList.add("tipo-transacao", "tipo-saque");
-
-  celulaValor.classList.add("valor-saque");
-
-  // Colocar as células dentro da linha
-  novaLinha.appendChild(celulaId);
-  novaLinha.appendChild(celulaTipo);
-  novaLinha.appendChild(celulaData);
-  novaLinha.appendChild(celulaHorario);
-  novaLinha.appendChild(celulaValor);
-
-  // Colocar a linha na tabela do extrato
-  listaTransacoes.appendChild(novaLinha);
-
-  // Mostrar mensagem de sucesso
   mensagemSaque.textContent = "Saque realizado com sucesso.";
 
-  // Limpar o campo
-  valorSaque.value = "";
+  /* Limpar o campo */
 
-  // Teste temporário
-  console.log(cliente.conta.transacoes);
+  valorSaque.value = "";
 });
