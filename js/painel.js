@@ -718,35 +718,9 @@ formDeposito.addEventListener("submit", function (evento) {
 
   totalDepositadoElemento.textContent = formatarMoeda(totalDepositado);
 
-  /* Remover mensagem de extrato vazio */
+  /* Atualizar todo o extrato */
 
-  if (linhaSemTransacoes && linhaSemTransacoes.isConnected) {
-    linhaSemTransacoes.remove();
-  }
-
-  /* Formatar data e horário */
-
-  const dataFormatada = novaTransacao.momento.toLocaleDateString("pt-BR");
-
-  const horarioFormatado = novaTransacao.momento.toLocaleTimeString("pt-BR", {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-
-  /* Criar uma nova linha no extrato */
-
-  const novaLinha = document.createElement("tr");
-  const novaCelula = document.createElement("td");
-
-  novaCelula.colSpan = 5;
-
-  novaCelula.textContent =
-    `${novaTransacao.id} - Depósito: ` +
-    `${formatarMoeda(novaTransacao.valor)} - ` +
-    `${dataFormatada} às ${horarioFormatado}`;
-
-  novaLinha.appendChild(novaCelula);
-  listaTransacoes.appendChild(novaLinha);
+  renderizarTransacoes(cliente.conta.transacoes);
 
   /* Mostrar mensagem de sucesso */
 
