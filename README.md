@@ -1,255 +1,216 @@
 # 🏦 K2 Banco Digital
 
-Projeto educacional desenvolvido para praticar lógica de programação, JavaScript, manipulação do DOM, HTML, CSS, Git e GitHub por meio da evolução contínua de um sistema bancário.
+O **K2 Banco Digital** é um sistema bancário desenvolvido para fins educacionais. O projeto nasceu durante meus estudos de lógica de programação com JavaScript e vem sendo evoluído por versões, acompanhando os conhecimentos adquiridos ao longo do aprendizado.
 
-A versão atual adiciona uma página de login responsiva para controlar o acesso visual ao sistema. O login funciona apenas no front-end e utiliza credenciais simuladas para fins de estudo.
-
----
-
-## 📌 Status do projeto
-
-🚧 Projeto em desenvolvimento
-
-**Versão atual: `v4.0.0`**
+A versão **4.1.0** marca a migração do sistema que antes funcionava com `prompt()`, `alert()` e menus no terminal para uma interface visual manipulada pelo DOM.
 
 ---
 
-## 🎯 Objetivo
+## 🎯 Objetivo do projeto
 
-O objetivo do projeto é transformar gradualmente um sistema bancário executado com `prompt()` e `alert()` em uma aplicação visual completa.
+O principal objetivo é aplicar, na prática, conhecimentos de:
 
-Durante o desenvolvimento, são praticados:
+- 🏗️ HTML semântico;
+- 🎨 CSS e responsividade;
+- ⚡ JavaScript;
+- 🖱️ Manipulação do DOM;
+- 🧩 Funções, objetos e Arrays;
+- 🔍 Métodos como `filter()`, `find()` e `reduce()`;
+- ✅ Validação de formulários;
+- 📁 Organização de código;
+- 🔀 Git e GitHub;
+- 🌿 Branches, commits e Pull Requests;
+- 🤝 Colaboração entre desenvolvedores.
 
-- Lógica de programação;
-- JavaScript;
-- Manipulação do DOM;
-- Eventos;
-- Validação de formulários;
-- HTML semântico;
-- CSS responsivo;
-- Git e GitHub;
-- Branches;
-- Commits;
-- Pull Requests;
-- Tags;
-- Releases;
-- Versionamento semântico.
+Este projeto também está sendo desenvolvido em colaboração com um amigo @WerbeteKaue.Dev. A proposta é vivenciar a experiência de trabalhar em equipe em um projeto maior, dividindo responsabilidades, utilizando Git para controlar as alterações e mantendo uma organização semelhante à encontrada em projetos reais.
 
 ---
 
-## 🆕 Novidades da v4.0.0
+## 🛠️ Tecnologias Utilizadas
 
-A versão `v4.0.0` inicia a migração do projeto para uma interface visual.
-
-Nesta versão, foi criada uma página de login utilizando HTML, CSS, JavaScript e manipulação do DOM.
-
-### Principais mudanças
-
-- Criação de uma página de login;
-- Utilização do `index.html` como página inicial;
-- Redirecionamento para `painel.html` após o login;
-- Campos de e-mail e senha;
-- Validação de campos vazios;
-- Validação das credenciais;
-- Mensagens de erro exibidas na própria página;
-- Opção para mostrar ou esconder a senha;
-- Limpeza automática das mensagens ao digitar;
-- Envio do formulário pelo botão ou pela tecla `Enter`;
-- Layout responsivo;
-- Aplicação da identidade visual do K2 Banco Digital;
-- Utilização da fonte Inter;
-- Utilização de variáveis CSS.
+- 🌐 **HTML5** - Estruturação semântica da aplicação web
+- 🎨 **CSS3** - Estilização, layout e responsividade da interface
+- ⚡ **JavaScript (ES6+)** - Lógica de negócios, manipulação do DOM e dinâmica da aplicação
+- 🔀 **Git** - Sistema de controle de versão
+- 🐙 **GitHub** - Hospedagem de repositório e trabalho colaborativo
+- 💻 **Visual Studio Code** - Ambiente de desenvolvimento (IDE)
 
 ---
 
-## 🔐 Credenciais de teste
+## 🤖 Uso de Inteligência Artificial
 
-Utilize as seguintes credenciais para acessar o sistema:
+Durante a reta final da versão 4.1.0, utilizei Inteligência Artificial como uma ferramenta de apoio ao desenvolvimento e ao aprendizado.
+
+A IA foi utilizada para:
+
+- 💡 Esclarecer dúvidas;
+- 📚 Explicar conceitos;
+- 🚀 Apresentar novas possibilidades de implementação;
+- 🎨 Ajudar na escolha de cores e decisões visuais;
+- 🐛 Revisar erros de sintaxe;
+- 🔍 Identificar comportamentos inesperados;
+- 📐 Sugerir melhorias de organização;
+- 🧪 Apoiar testes e documentação.
+
+Ela não substituiu o processo de estudo. As sugestões foram analisadas, adaptadas e testadas antes de serem adicionadas ao projeto. Em alguns momentos, a IA também auxiliou na construção e revisão de trechos de código, mas o objetivo permaneceu o mesmo: compreender a lógica aplicada e utilizar a tecnologia como uma ferramenta de produtividade, assim como ela já é utilizada no mercado de trabalho e no meio educacional.
+
+Acredito que a Inteligência Artificial pode ser uma grande aliada do desenvolvedor quando é utilizada com responsabilidade, senso crítico e disposição para aprender.
+
+---
+
+## ✨ Funcionalidades da versão 4.1.0
+
+- 🔑 Login demonstrativo;
+- 👤 Exibição dos dados do cliente e da conta;
+- 💰 Consulta de saldo;
+- 👁️ Opção para mostrar e esconder o saldo;
+- 💵 Realização de depósitos;
+- 💸 Realização de saques;
+- 🚫 Bloqueio de saques acima do saldo disponível;
+- ✔️ Validação dos campos dos formulários;
+- 📝 Registro automático das transações;
+- 🆔 Identificação das transações por ID;
+- 📅 Data e horário de cada operação;
+- 📊 Extrato bancário em tabela;
+- 🔎 Filtro de depósitos, saques ou todas as transações;
+- 🎯 Busca de transação pelo ID;
+- 📈 Total depositado;
+- 📉 Total sacado;
+- 🔢 Quantidade total de operações;
+- 🔔 Mensagens visuais de erro e sucesso.
+
+---
+
+## 📁 Estrutura do projeto
+
+```text
+k2-banco-digital/
+├── assets/
+│   ├── css/
+│   │   ├── login.css
+│   │   └── style.css
+│   └── js/
+│       ├── login.js
+│       └── script.js
+├── index.html
+├── painel.html
+└── README.md
+```
+
+---
+
+## 🚀 Como executar
+
+1. Clone o repositório:
+
+```bash
+git https://github.com/kherlyssonr/sistema-bancario-js.git
+```
+
+2. Entre na pasta do projeto:
+
+```bash
+cd k2-banco-digital
+```
+
+3. Abra o arquivo `index.html` no navegador.
+
+Também é possível utilizar a extensão **Live Server** no Visual Studio Code.
+
+---
+
+## 🔐 Acesso demonstrativo
 
 ```text
 E-mail: clienteK@k2banco.com
 Senha: jovemtech
 ```
 
-> As credenciais são utilizadas apenas para simular um login durante os estudos.
+Essas credenciais são públicas e existem apenas para demonstrar o funcionamento da interface. O projeto ainda não possui backend, banco de dados ou autenticação real.
 
 ---
 
-## ⚠️ Aviso sobre autenticação
+## ⚠️ Limitações atuais
 
-O login da versão `v4.0.0` é apenas uma simulação feita no front-end.
+O K2 Banco Digital é um projeto exclusivamente educacional. Por enquanto:
 
-As credenciais ficam armazenadas no JavaScript e podem ser visualizadas pelo navegador. Além disso, o arquivo `painel.html` ainda pode ser acessado diretamente pela URL.
-
-Esta versão não utiliza:
-
-- Backend;
-- Banco de dados;
-- Criptografia de senha;
-- Sessões;
-- Tokens;
-- Proteção real de rotas;
-- `sessionStorage` ou `localStorage` para autenticação.
-
-Uma autenticação segura será implementada futuramente após o estudo de desenvolvimento backend.
+- 💾 Os dados ficam apenas na memória do navegador;
+- 🔄 As transações são apagadas ao recarregar a página;
+- 🔒 O login é apenas uma simulação no front-end;
+- 🖥️ Não existe comunicação com servidor;
+- 🗄️ Não existe banco de dados;
+- 🛑 Não devem ser utilizadas informações bancárias ou credenciais reais.
 
 ---
 
-## ✨ Funcionalidades atuais
+## 📈 Evolução do projeto
 
-### Página de login
+### 📌 v1.0.0
 
-- Campo de e-mail;
-- Campo de senha;
-- Botão para entrar;
-- Checkbox para mostrar ou esconder a senha;
-- Validação de campos vazios;
-- Validação de credenciais incorretas;
-- Mensagem de erro na página;
-- Limpeza da mensagem ao alterar os campos;
-- Redirecionamento para o painel;
-- Funcionamento pela tecla `Enter`;
-- Layout responsivo.
+Criação do sistema bancário inicial com consulta de saldo, depósito, saque e menu executado com `prompt()` e `alert()`.
 
-### Sistema bancário
+### 📌 v1.1.0
 
-- Cadastro básico do cliente;
-- Consulta de saldo;
-- Depósitos;
-- Saques;
-- Validação de valores;
-- Histórico de transações;
-- Extrato completo;
-- Filtro de depósitos;
-- Filtro de saques;
-- Busca por ID;
-- Resumo da conta;
-- Exibição dos dados do cliente;
-- Formatação monetária no padrão brasileiro.
+Adição de validações para impedir depósitos e saques inválidos.
 
----
+### 📌 v2.0.0
 
-## 📋 Histórico de versões
+Criação do histórico de transações utilizando Arrays.
 
-### v4.0.0 — Página de login com DOM
+### 📌 v2.0.1
 
-- Criação da interface de login;
-- HTML semântico;
-- CSS responsivo;
-- Identidade visual do K2 Banco Digital;
-- Fonte Inter;
-- Variáveis CSS;
-- Captura de elementos com DOM;
-- Validação de formulário;
-- Mensagens na página;
-- Mostrar e esconder senha;
-- Redirecionamento para o painel.
+Correções de validação, mensagens e comportamentos inesperados.
 
-### v3.1.1 — Validações e correções
+### 📌 v2.1.0
 
-- Validação do cadastro;
-- Tratamento de cancelamentos;
-- Tratamento de espaços;
-- Validação aprimorada de depósitos e saques;
-- Validação da busca por ID;
-- Formatação monetária brasileira;
-- Padronização das mensagens.
+Adição de IDs, resumo da conta, total depositado, total sacado e quantidade de operações.
 
-### v3.1.0 — Filtros, busca e cálculos
+### 📌 v3.0.0
 
-- Implementação de `filter()`;
-- Implementação de `find()`;
-- Implementação de `reduce()`;
-- Filtro de depósitos;
-- Filtro de saques;
-- Busca de transação por ID;
-- Totais calculados com `reduce()`.
+Organização dos dados do cliente, da conta e das transações utilizando objetos.
 
-### v3.0.0 — Objetos e dados da conta
+### 📌 v3.1.0
 
-- Cadastro básico do cliente;
-- Dados organizados em objetos;
-- Conta como objeto interno;
-- Transações armazenadas como objetos;
-- IDs únicos;
-- Data e horário;
-- Exibição dos dados da conta.
+Aplicação dos métodos `filter()`, `find()` e `reduce()` para filtros, buscas e cálculos.
 
-### v2.1.0 — Resumo da conta
+### 📌 v3.1.1
 
-- Numeração das transações;
-- Total depositado;
-- Total sacado;
-- Quantidade de operações;
-- Saldo no resumo.
+Correções e melhorias nas validações do sistema.
 
-### v2.0.1 — Correções e melhorias
+### 📌 v4.0.0
 
-- Tratamento de operações canceladas;
-- Tratamento de campos vazios;
-- Validação de valores;
-- Melhorias nas mensagens.
+Criação da página de login e início da migração para uma interface visual.
 
-### v2.0.0 — Histórico e extrato
+### 📌 v4.1.0
 
-- Histórico de transações;
-- Registro de depósitos;
-- Registro de saques;
-- Implementação do extrato;
-- Utilização de Arrays.
-
-### v1.1.0 — Validações
-
-- Bloqueio de depósitos inválidos;
-- Bloqueio de saques inválidos;
-- Verificação de saldo insuficiente;
-- Tratamento de opções inválidas.
-
-### v1.0.0 — Primeira versão
-
-- Consulta de saldo;
-- Depósito;
-- Saque;
-- Menu interativo;
-- Funções bancárias.
+Implementação do painel bancário com DOM, formulários, extrato em tabela, filtros, busca por ID, resumo das operações e mensagens visuais.
 
 ---
 
-## 🛠️ Tecnologias utilizadas
+## 🔮 Próximos passos
 
-- HTML5;
-- CSS3;
-- JavaScript;
-- Git;
-- GitHub;
-- Visual Studio Code.
+Entre as melhorias planejadas estão:
 
----
-
-## 🌿 Fluxo de desenvolvimento
-
-1. Criar uma branch;
-2. Desenvolver as alterações;
-3. Fazer commits organizados;
-4. Enviar a branch para o GitHub;
-5. Abrir um Pull Request;
-6. Fazer o merge na `main`;
-7. Criar a tag da versão;
-8. Publicar a Release;
-9. Apagar a branch concluída.
+- 💾 Armazenamento dos dados no navegador;
+- 👥 Criação de novos clientes;
+- 🔑 Autenticação com backend;
+- 🗄️ Integração com banco de dados;
+- 📱 Melhoria da responsividade;
+- ♿ Acessibilidade;
+- 🧪 Testes automatizados;
+- 💳 Novos tipos de transação;
+- 📦 Organização do JavaScript em módulos.
 
 ---
 
-## 📖 Aviso
+## 💡 Aprendizados
 
-Este é um projeto educacional.
+Este projeto representa minha evolução nos estudos de desenvolvimento web. Além da parte técnica, ele também está ajudando a desenvolver habilidades de organização, resolução de problemas, comunicação, colaboração, versionamento e responsabilidade sobre as alterações realizadas no código.
 
-O sistema não possui conexão com bancos reais, não utiliza dados financeiros verdadeiros e não deve ser utilizado para operações bancárias reais.
-
-A página de login não representa uma autenticação segura.
+Cada versão registra uma nova etapa do aprendizado e transforma um exercício simples em um projeto cada vez mais completo.
 
 ---
 
-## 👨‍💻 Autor
+## ⚠️ Aviso
 
-Desenvolvido por **Kherlysson Ryann** durante os estudos de lógica de programação, JavaScript e desenvolvimento front-end.
+Este sistema não é uma instituição financeira e não realiza operações bancárias reais. Todo o conteúdo foi criado exclusivamente para estudo, prática e composição de portfólio.

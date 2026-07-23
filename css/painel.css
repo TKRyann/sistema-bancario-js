@@ -33,6 +33,14 @@
   --border-radius: 16px;
 }
 
+.mensagem-sucesso {
+  color: var(--primary-color);
+}
+
+.mensagem-erro {
+  color: #ff5c5c;
+}
+
 /* Reset */
 * {
   margin: 0;
