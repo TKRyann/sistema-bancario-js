@@ -599,12 +599,18 @@ input:-webkit-autofill{
 
     align-items:center;
 
+    justify-content: space-between;
+
     gap:10px;
 
     margin-top:-6px;
 
     user-select:none;
 
+}
+
+.mostrar-senha-ess a {
+    text-decoration: none;
 }
 
 /* ==========================================================
