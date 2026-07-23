@@ -859,3 +859,54 @@ filtroTransacoes.addEventListener("change", function () {
 
   renderizarTransacoes(transacoesFiltradas);
 });
+
+/* Elementos da busca por ID */
+
+const formBuscaTransacao = document.getElementById("form-busca-transacao");
+
+const buscaTransacaoId = document.getElementById("busca-transacao-id");
+
+const mensagemExtrato = document.getElementById("mensagem-extrato");
+
+/* Buscar transação pelo ID */
+
+formBuscaTransacao.addEventListener("submit", function (evento) {
+  evento.preventDefault();
+
+  const entradaId = buscaTransacaoId.value;
+  const idProcurado = Number(entradaId);
+
+  /* Validar campo vazio */
+
+  if (entradaId.trim() === "") {
+    mensagemExtrato.textContent = "Informe o ID da transação.";
+
+    return;
+  }
+
+  /* Validar valor não numérico */
+
+  if (!Number.isFinite(idProcurado)) {
+    mensagemExtrato.textContent = "Digite um ID válido.";
+
+    return;
+  }
+
+  /* Validar número inteiro */
+
+  if (!Number.isInteger(idProcurado)) {
+    mensagemExtrato.textContent = "O ID deve ser um número inteiro.";
+
+    return;
+  }
+
+  /* Bloquear zero e números negativos */
+
+  if (idProcurado <= 0) {
+    mensagemExtrato.textContent = "O ID deve ser maior que zero.";
+
+    return;
+  }
+
+  console.log("ID válido:", idProcurado);
+});
