@@ -837,3 +837,25 @@ formSaque.addEventListener("submit", function (evento) {
 
   valorSaque.value = "";
 });
+
+/* Filtro do extrato */
+
+const filtroTransacoes = document.getElementById("filtro-transacoes");
+
+filtroTransacoes.addEventListener("change", function () {
+  const filtroSelecionado = filtroTransacoes.value;
+
+  if (filtroSelecionado === "todos") {
+    renderizarTransacoes(cliente.conta.transacoes);
+
+    return;
+  }
+
+  const transacoesFiltradas = cliente.conta.transacoes.filter(
+    function (transacao) {
+      return transacao.tipo === filtroSelecionado;
+    },
+  );
+
+  renderizarTransacoes(transacoesFiltradas);
+});
