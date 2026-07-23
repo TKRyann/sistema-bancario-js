@@ -729,9 +729,23 @@ formSaque.addEventListener("submit", function (evento) {
 
     return;
   }
+  cliente.conta.saldo = sacar(cliente.conta.saldo, saqueFeito);
 
-  mensagemSaque.textContent = "";
+  if (saldoVisivel) {
+    saldoValor.textContent = formatarMoeda(cliente.conta.saldo);
+  } else {
+    saldoValor.textContent = "••••••";
+  }
 
-  console.log("Saque válido:", saqueFeito);
-  console.log("Formulário de saque enviado");
+  // Atualizar a quantidade de operações
+  quantidadeOperacoes.textContent = cliente.conta.transacoes.length;
+
+  // Mostrar mensagem de sucesso
+  mensagemSaque.textContent = "Saque realizado com sucesso.";
+
+  // Limpar o campo
+  valorSaque.value = "";
+
+  // Teste temporário
+  console.log(cliente.conta.transacoes);
 });
