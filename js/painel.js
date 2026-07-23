@@ -697,6 +697,7 @@ formDeposito.addEventListener("submit", function (evento) {
 const formSaque = document.getElementById("form-saque");
 const valorSaque = document.getElementById("valor-saque");
 const mensagemSaque = document.getElementById("mensagem-saque");
+const totalSacadoElemento = document.getElementById("total-sacado");
 
 formSaque.addEventListener("submit", function (evento) {
   evento.preventDefault();
@@ -755,6 +756,14 @@ formSaque.addEventListener("submit", function (evento) {
 
   // Atualizar a quantidade de operações
   quantidadeOperacoes.textContent = cliente.conta.transacoes.length;
+
+  const saques = cliente.conta.transacoes.filter(function (transacao) {
+    return transacao.tipo === "saque";
+  });
+
+  const totalSacado = calcularTotalTransacoes(saques);
+  const totalSacadoElemento = document.getElementById("total-sacado");
+  totalSacadoElemento.textContent = formatarMoeda(totalSacado);
 
   // Mostrar mensagem de sucesso
   mensagemSaque.textContent = "Saque realizado com sucesso.";
