@@ -695,9 +695,7 @@ formDeposito.addEventListener("submit", function (evento) {
 });
 
 const formSaque = document.getElementById("form-saque");
-
 const valorSaque = document.getElementById("valor-saque");
-
 const mensagemSaque = document.getElementById("mensagem-saque");
 
 formSaque.addEventListener("submit", function (evento) {
@@ -706,31 +704,49 @@ formSaque.addEventListener("submit", function (evento) {
   const entradaSaque = valorSaque.value;
   const saqueFeito = Number(entradaSaque);
 
+  // Validar campo vazio
   if (entradaSaque.trim() === "") {
     mensagemSaque.textContent = "Informe um valor para o saque.";
-
     return;
   }
 
+  // Validar número
   if (!Number.isFinite(saqueFeito)) {
     mensagemSaque.textContent = "Digite um valor válido.";
-
     return;
   }
 
+  // Bloquear zero e números negativos
   if (saqueFeito <= 0) {
     mensagemSaque.textContent = "O saque deve ser maior que zero.";
-
     return;
   }
 
+  // Verificar saldo suficiente
   if (saqueFeito > cliente.conta.saldo) {
     mensagemSaque.textContent = "Saldo insuficiente para realizar o saque.";
 
     return;
   }
+
+  // Atualizar o saldo do objeto
   cliente.conta.saldo = sacar(cliente.conta.saldo, saqueFeito);
 
+  // Criar a transação de saque
+  const novaTransacao = {
+    id: proximoId,
+    tipo: "saque",
+    valor: saqueFeito,
+    momento: new Date(),
+  };
+
+  // Registrar a transação no Array
+  cliente.conta.transacoes.push(novaTransacao);
+
+  // Preparar o próximo ID
+  proximoId++;
+
+  // Atualizar o saldo no painel
   if (saldoVisivel) {
     saldoValor.textContent = formatarMoeda(cliente.conta.saldo);
   } else {
