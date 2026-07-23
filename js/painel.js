@@ -188,6 +188,69 @@ function calcularTotalTransacoes(listaTransacoes) {
   }, 0);
 }
 
+function renderizarTransacoes(lista) {
+  // Limpa as linhas atuais da tabela
+  listaTransacoes.innerHTML = "";
+
+  // Verifica se o Array está vazio
+  if (lista.length === 0) {
+    const linhaVazia = document.createElement("tr");
+    const celulaVazia = document.createElement("td");
+
+    celulaVazia.colSpan = 5;
+    celulaVazia.textContent = "Nenhuma transação encontrada.";
+
+    linhaVazia.appendChild(celulaVazia);
+    listaTransacoes.appendChild(linhaVazia);
+
+    return;
+  }
+
+  lista.forEach(function (transacao) {
+    const dataFormatada = transacao.momento.toLocaleDateString("pt-BR");
+
+    const horarioFormatado = transacao.momento.toLocaleTimeString("pt-BR", {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+
+    const novaLinha = document.createElement("tr");
+
+    const celulaId = document.createElement("td");
+    const celulaTipo = document.createElement("td");
+    const celulaData = document.createElement("td");
+    const celulaHorario = document.createElement("td");
+    const celulaValor = document.createElement("td");
+
+    celulaId.textContent = transacao.id;
+    celulaData.textContent = dataFormatada;
+    celulaHorario.textContent = horarioFormatado;
+    celulaValor.textContent = formatarMoeda(transacao.valor);
+
+    if (transacao.tipo === "deposito") {
+      celulaTipo.textContent = "Depósito";
+
+      celulaTipo.classList.add("tipo-transacao", "tipo-deposito");
+
+      celulaValor.classList.add("valor-deposito");
+    } else {
+      celulaTipo.textContent = "Saque";
+
+      celulaTipo.classList.add("tipo-transacao", "tipo-saque");
+
+      celulaValor.classList.add("valor-saque");
+    }
+
+    novaLinha.appendChild(celulaId);
+    novaLinha.appendChild(celulaTipo);
+    novaLinha.appendChild(celulaData);
+    novaLinha.appendChild(celulaHorario);
+    novaLinha.appendChild(celulaValor);
+
+    listaTransacoes.appendChild(novaLinha);
+  });
+}
+
 /* ==========================================================
    MENU ANTIGO — DESATIVADO DURANTE A MIGRAÇÃO PARA O DOM
    ==========================================================
