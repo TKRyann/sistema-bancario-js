@@ -703,5 +703,35 @@ const mensagemSaque = document.getElementById("mensagem-saque");
 formSaque.addEventListener("submit", function (evento) {
   evento.preventDefault();
 
+  const entradaSaque = valorSaque.value;
+  const saqueFeito = Number(entradaSaque);
+
+  if (entradaSaque.trim() === "") {
+    mensagemSaque.textContent = "Informe um valor para o saque.";
+
+    return;
+  }
+
+  if (!Number.isFinite(saqueFeito)) {
+    mensagemSaque.textContent = "Digite um valor válido.";
+
+    return;
+  }
+
+  if (saqueFeito <= 0) {
+    mensagemSaque.textContent = "O saque deve ser maior que zero.";
+
+    return;
+  }
+
+  if (saqueFeito > cliente.conta.saldo) {
+    mensagemSaque.textContent = "Saldo insuficiente para realizar o saque.";
+
+    return;
+  }
+
+  mensagemSaque.textContent = "";
+
+  console.log("Saque válido:", saqueFeito);
   console.log("Formulário de saque enviado");
 });
