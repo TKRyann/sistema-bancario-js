@@ -611,6 +611,7 @@ input:-webkit-autofill{
 
 .mostrar-senha-inputs {
     display: flex;
+    gap: 5px;
 }
 
 .mostrar-senha-ess a {
