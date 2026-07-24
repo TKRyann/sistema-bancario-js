@@ -609,8 +609,17 @@ input:-webkit-autofill{
 
 }
 
+.mostrar-senha-inputs {
+    display: flex;
+}
+
 .mostrar-senha-ess a {
     text-decoration: none;
+    color: var(--color-white);
+}
+
+.mostrar-senha-ess a:hover {
+    text-decoration: underline;
 }
 
 /* ==========================================================
@@ -833,6 +842,30 @@ input:-webkit-autofill{
 /* ==========================================================
    LINKS
 ========================================================== */
+
+.login-rodape {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--color-text);
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}
+
+.link-criar-conta {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.link-criar-conta:hover,
+.link-criar-conta:focus {
+    color: #00cc52;
+    text-decoration: underline;
+    outline: none;
+}
 
 .login-links{
 
